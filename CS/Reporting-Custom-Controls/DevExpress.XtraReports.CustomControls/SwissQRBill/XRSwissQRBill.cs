@@ -7,11 +7,14 @@ using DevExpress.XtraReports.Expressions;
 using DevExpress.XtraReports;
 using DevExpress.Utils.Design;
 using DevExpress.XtraReports.UserDesigner;
+using DevExpress.XtraPrinting.BarCode;
+using System.Linq;
+using System.Diagnostics;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [ToolboxItem(true)]
     [ToolboxSvgImage("DevExpress.XtraReports.CustomControls.Resources.SwissQRBillToolboxImage.svg,DevExpress.XtraReports.CustomControls")]
-    [XRDesigner("DevExpress.XtraReports.CustomControls.Design.SwissQRBill.XRSwissQRBillDesigner")]
+    [XRDesigner("DevExpress.XtraReports.CustomControls.Design.SwissQRBill.XRSwissQRBillDesigner, DevExpress.XtraReports.CustomControls.Design")]
     [XRToolboxSubcategory(0, 7)]
     [DefaultBindableProperty(nameof(StringData))]
     public partial class XRSwissQRBill : XRControl {
@@ -221,6 +224,13 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         static XRSwissQRBill() {
             ExpressionBindingDescriptor.SetPropertyDescription(typeof(XRSwissQRBill), nameof(StringData), new ExpressionBindingDescription(new string[] { "BeforePrint" }, 1000, new string[0]));
+            ValidateIncludeQuietZone();
+        }
+
+        static void ValidateIncludeQuietZone() {
+            var includeQuietZoneProperty = typeof(QRCodeGenerator).GetProperties().FirstOrDefault(a => a.Name == "IncludeQuietZone");
+            if(includeQuietZoneProperty == null)
+                Debug.Fail("IncludeQuietZone property is not available. The control may not draw correctly");
         }
 
         public XRSwissQRBill() {

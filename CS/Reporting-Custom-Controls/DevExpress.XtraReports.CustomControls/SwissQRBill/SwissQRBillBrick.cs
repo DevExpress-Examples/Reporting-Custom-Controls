@@ -9,6 +9,7 @@ using System.Linq;
 using System;
 using DevExpress.Utils.Serializing;
 using DevExpress.XtraReports.CustomControls.Properties;
+using System.Diagnostics;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [BrickExporter(typeof(SwissQRBillBrickExporter))]
@@ -90,7 +91,6 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         VisualBrick CreatePaymentPart() {
             PanelBrick panelBrick = CreatePanelBrick(BoundsCalculator.GetPaymentBounds(this));
-
             panelBrick.Bricks.Add(CreatePaymentTitle());
             panelBrick.Bricks.Add(CreatePaymentSwissQRCode());
             panelBrick.Bricks.Add(CreatePaymentInformation());
@@ -131,13 +131,19 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return string.Join(Environment.NewLine,
                 BillDataItem.AdditionalInformation, BillDataItem.StructuredInformation);
         }
+
+        void TrySetIncludeQuietZone(QRCodeGenerator generator) {
+            var includeQuietZone = generator.GetType().GetProperties().FirstOrDefault(a => a.Name == "IncludeQuietZone");
+            includeQuietZone?.SetValue(generator, false);
+        }
+
         VisualBrick CreatePaymentSwissQRCode() {
             var panelBrick = CreatePanelBrick(Constants.QRCodeBounds);
             var generator = new QRCodeGenerator() {
                 Version = QRCodeVersion.Version10,
                 CompactionMode = QRCodeCompactionMode.Byte,
-                IncludeQuietZone = false,
             };
+            TrySetIncludeQuietZone(generator); //This property is available in version 20.1.5 or later
             var barCodeBrick = new BarCodeBrick() {
                 Size = panelBrick.Size,
                 Sides = BorderSide.None,
