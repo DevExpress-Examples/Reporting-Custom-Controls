@@ -2,14 +2,17 @@ using System;
 using System.ComponentModel;
 using DevExpress.Utils.Serializing;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [TypeConverter(typeof(AlternativeSchemaTypeConverter))]
     public partial class AlternativeSchema : QRCodeDataElement {
+        const string SplitterString = ": ";
+
         static Tuple<string, string> ParseSchemaString(string schema) {
             string name = string.Empty;
             string instruction = string.Empty;
-            var splitResult = schema.Split(':');
+            var splitResult = Regex.Split(schema, SplitterString);
             if(splitResult.Length > 0)
                 name = splitResult[0];
             if(splitResult.Length > 1)
@@ -65,9 +68,9 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         public override string ConvertToQRCodeDataString() {
             List<string> result = new List<string>();
             if(!IsFirstPairEmpty)
-                result.Add($"{Name1}:{Instruction1}");
+                result.Add($"{Name1}{SplitterString}{Instruction1}");
             if(!IsSecondPairEmpty)
-                result.Add($"{Name2}:{Instruction2}");
+                result.Add($"{Name2}{SplitterString}{Instruction2}");
             return string.Join(Environment.NewLine, result);
         }
 

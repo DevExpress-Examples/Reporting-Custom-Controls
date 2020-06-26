@@ -129,6 +129,7 @@
     <Compile Include="SwissQRBill\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SwissQRBill\XRSwissQRBill.cs" />
+    <Compile Include="SwissQRBill\XRSwissQRBillScripts.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

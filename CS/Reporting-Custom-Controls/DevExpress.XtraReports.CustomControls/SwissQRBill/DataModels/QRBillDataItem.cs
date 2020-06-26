@@ -107,13 +107,18 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             stringBuilder.AppendLine(ReferenceType.ToString());
             stringBuilder.AppendLine(Reference == null ? string.Empty : Reference.ConvertToQRCodeDataString());
             stringBuilder.AppendLine(AdditionalInformation);
-            stringBuilder.AppendLine("EPD");
-            if(!AlternativeSchema.IsEmpty) {
-                stringBuilder.AppendLine(StructuredInformation);
-                stringBuilder.Append(AlternativeSchema.ConvertToQRCodeDataString());
-            } else
-                stringBuilder.Append(StructuredInformation);
+            stringBuilder.Append("EPD");
+            AddIfNotEmpty(stringBuilder, StructuredInformation);
+            AddIfNotEmpty(stringBuilder, AlternativeSchema.ConvertToQRCodeDataString());
             return stringBuilder.ToString();
         }
+
+        void AddIfNotEmpty(StringBuilder stringBuilder, string dataField) {
+            if(!string.IsNullOrEmpty(dataField)) {
+                stringBuilder.Append(Environment.NewLine);
+                stringBuilder.Append(dataField);
+            }
+        }
+
     }
 }

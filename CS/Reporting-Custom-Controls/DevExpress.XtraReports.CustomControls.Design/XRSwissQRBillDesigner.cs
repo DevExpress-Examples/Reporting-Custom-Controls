@@ -11,4 +11,6 @@ namespace DevExpress.XtraReports.CustomControls.Design.SwissQRBill {
             list.Add(new XRSwissQRBillDesignerActionList(this));
         }
     }
+    public class _XRSwissQRBillDesigner : XRSwissQRBillDesigner {         
+    }
 }

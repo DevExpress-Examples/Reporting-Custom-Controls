@@ -4,6 +4,7 @@ using System.ComponentModel.Design;
 using DevExpress.XtraReports.Design;
 using DevExpress.XtraReports.Design.Expressions;
 using DevExpress.XtraReports.CustomControls.SwissQRBill;
+using DevExpress.Utils;
 
 namespace DevExpress.XtraReports.CustomControls.Design.SwissQRBill {
     public class XRSwissQRBillDesignerActionList : XRControlBaseDesignerActionList {
@@ -12,10 +13,6 @@ namespace DevExpress.XtraReports.CustomControls.Design.SwissQRBill {
             set { SetPropertyValue(nameof(XRSwissQRBill.StringData), value); }
         }
 
-        //public DesignBinding ImageSourceBinding {
-        //    get { return ControlDesigner.GetDesignBinding(nameof(CustomQRBillControl.StringData)); }
-        //    set { ControlDesigner.SetBinding(nameof(CustomQRBillControl.StringData), value); }
-        //}
         [Editor(typeof(ExpressionValueEditor), typeof(UITypeEditor))]
         [AdditionalEditor(typeof(PopupExpressionValueEditor))]
         [TypeConverter(typeof(ExpressionPropertyTypeConverter))]

@@ -15,9 +15,8 @@ namespace SwissQRBillExample {
         [STAThread]
         static void Main() {
             ReportDesignTool designTool = new ReportDesignTool(new Report());
-            CustomControlBoxRegistrator.AddSwissQRControlToToolBox(designTool.DesignRibbonForm.DesignMdiController);
+            CustomControlToolBoxRegistrator.AddSwissQRControlToToolBox(designTool.DesignRibbonForm.DesignMdiController);
             designTool.ShowRibbonDesignerDialog();
-
         }
     }
 }

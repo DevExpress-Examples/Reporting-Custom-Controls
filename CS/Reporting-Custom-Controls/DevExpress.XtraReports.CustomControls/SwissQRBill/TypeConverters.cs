@@ -11,6 +11,13 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return base.ConvertTo(context, culture, value, destinationType);
         }
     }
+    public class SwissQRBillScriptsTypeConverter : ExpandableObjectConverter {
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType) {
+            if(destinationType == typeof(string) && value is XRSwissQRBillScripts)
+                return "(Swiss QR Bill Scripts)";
+            return base.ConvertTo(context, culture, value, destinationType);
+        }
+    }
 
     public class AlternativeSchemaTypeConverter : ExpandableObjectConverter {
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType) {

@@ -4,8 +4,7 @@ using DevExpress.XtraReports.UI;
 using DevExpress.XtraReports.UserDesigner;
 
 namespace DevExpress.XtraReports.CustomControls {
-    public static class CustomControlBoxRegistrator {
-
+    public static class CustomControlToolBoxRegistrator {
         public static void EnsureSwissQRControl(XRDesignMdiController designMdiController) {
             CustomControl.EnsureSwissQRBillBrick();
             AddSwissQRControlToToolBox(designMdiController);
@@ -22,6 +21,5 @@ namespace DevExpress.XtraReports.CustomControls {
                 toolboxService.AddToolboxItem(toolboxItem);
             };
         }
-
     }
 }
