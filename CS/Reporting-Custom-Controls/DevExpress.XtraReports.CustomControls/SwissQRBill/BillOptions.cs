@@ -28,16 +28,16 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         [DisplayName("Preview Separator Kind")]
         [Description("Preview Separator Kind description")]
         [Category("Data")]
-        [DefaultValue(SeparatorKind.None)]
+        [DefaultValue(SeparatorKind.DashedLineWithScissors)]
         [XtraSerializableProperty]
-        public SeparatorKind PreviewSeparatorKind { get; set; } = SeparatorKind.None;
+        public SeparatorKind PreviewSeparatorKind { get; set; } = SeparatorKind.DashedLineWithScissors;
 
         [DisplayName("Pdf Separator Kind")]
         [Description("Pdf Separator Kind description")]
         [Category("Data")]
-        [DefaultValue(SeparatorKind.None)]
+        [DefaultValue(SeparatorKind.DashedLine)]
         [XtraSerializableProperty]
-        public SeparatorKind PdfSeparatorKind { get; set; } = SeparatorKind.None;
+        public SeparatorKind PdfSeparatorKind { get; set; } = SeparatorKind.DashedLine;
 
         public BillOptions() {
         }
