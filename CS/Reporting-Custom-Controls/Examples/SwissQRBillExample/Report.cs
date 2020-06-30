@@ -16,8 +16,6 @@ namespace SwissQRBillExample {
         private XRControlStyle PageInfo;
         private TopMarginBand TopMargin;
         private BottomMarginBand BottomMargin;
-        private XRPageInfo pageInfo1;
-        private XRPageInfo pageInfo2;
         private DetailBand Detail;
         private DetailReportBand DetailReport;
         private GroupHeaderBand GroupHeader1;
@@ -52,8 +50,6 @@ namespace SwissQRBillExample {
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
@@ -139,27 +135,8 @@ namespace SwissQRBillExample {
             // 
             // BottomMargin
             // 
-            this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.pageInfo1,
-            this.pageInfo2});
+            this.BottomMargin.HeightF = 0F;
             this.BottomMargin.Name = "BottomMargin";
-            // 
-            // pageInfo1
-            // 
-            this.pageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(9.999997F, 9.999997F);
-            this.pageInfo1.Name = "pageInfo1";
-            this.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.pageInfo1.SizeF = new System.Drawing.SizeF(313F, 23F);
-            this.pageInfo1.StyleName = "PageInfo";
-            // 
-            // pageInfo2
-            // 
-            this.pageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(503.77F, 9.999997F);
-            this.pageInfo2.Name = "pageInfo2";
-            this.pageInfo2.SizeF = new System.Drawing.SizeF(313F, 23F);
-            this.pageInfo2.StyleName = "PageInfo";
-            this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.pageInfo2.TextFormatString = "Page {0} of {1}";
             // 
             // Detail
             // 
@@ -343,7 +320,6 @@ namespace SwissQRBillExample {
             // 
             // xrSwissQRBill1
             // 
-            this.xrSwissQRBill1.BillOptions.PreviewSeparatorKind = ((DevExpress.XtraReports.CustomControls.SwissQRBill.SeparatorKind)((DevExpress.XtraReports.CustomControls.SwissQRBill.SeparatorKind.Scissors | DevExpress.XtraReports.CustomControls.SwissQRBill.SeparatorKind.DashedLine)));
             this.xrSwissQRBill1.CreditorIBAN = "AA45XXXXXXXXXXXXXXXXA";
             this.xrSwissQRBill1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StringData", "[BillItemStringInfo]")});
@@ -369,7 +345,7 @@ namespace SwissQRBillExample {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 52, 100);
+            this.Margins = new System.Drawing.Printing.Margins(0, 0, 52, 0);
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;

@@ -14,7 +14,8 @@ using DevExpress.Utils;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [ToolboxItem(true)]
-    [ToolboxSvgImage("DevExpress.XtraReports.CustomControls.Resources.SwissQRBillToolboxImage.svg,DevExpress.XtraReports.CustomControls")]
+    [ToolboxBitmap("DevExpress.XtraReports.CustomControls.Resources.SwissQRBillToolboxImage.bmp,DevExpress.XtraReports.CustomControls")]
+    [ToolboxSvgImage("DevExpress.XtraReports.CustomControls.Resources.SwissQRBillToolboxSvgImage.svg,DevExpress.XtraReports.CustomControls")]
     [XRDesigner("DevExpress.XtraReports.CustomControls.Design.SwissQRBill.XRSwissQRBillDesigner, DevExpress.XtraReports.CustomControls.Design")]
     [Designer("DevExpress.XtraReports.CustomControls.Design.SwissQRBill._XRSwissQRBillDesigner, DevExpress.XtraReports.CustomControls.Design")]
     [XRToolboxSubcategory(0, 7)]

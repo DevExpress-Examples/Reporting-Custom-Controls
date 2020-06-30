@@ -149,14 +149,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\SwissQRBillToolboxImage.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SwissLogo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\HorizontalScissors.png" />
-    <Content Include="Resources\VerticalScissors.png" />
+    <EmbeddedResource Include="Resources\SwissQRBillToolboxSvgImage.svg" />
+    <EmbeddedResource Include="Resources\SwissLogo.png" />
+    <EmbeddedResource Include="Resources\HorizontalScissors.png" />
+    <EmbeddedResource Include="Resources\SwissQRBillToolboxImage.bmp" />
+    <EmbeddedResource Include="Resources\VerticalScissors.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
