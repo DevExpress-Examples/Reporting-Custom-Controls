@@ -53,9 +53,9 @@ To add a component to the Visual Studio Toolbox, the component must have the a *
 
 The WinForms End-User Designer requires that the component is registered with the **IToolBoxService**. Handle the **DesignPanelLoaded** event and call the **IToolBoxService.AddToolBoxItem** method to register the component.
 
-To implement design-time functionality for the component, add the **Designer** and **XRDesigner** attributes for Visual Studio and the WinForms End-User Designer, respectively. The control's resize rules and smart tag items must be modified as needed. Smart tag items are specified with the **DesignerActionList** objects registered in the Component Designer. The **GetSelectionRulesCore** method modifies the control’s resize rules. Review the code in the following file for more information: [XRSwissQRBillDesignerActionList.cs](DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs).
+To implement design-time functionality for the component, add the **Designer** and **XRDesigner** attributes for Visual Studio and the WinForms End-User Designer, respectively. The control's resize rules and smart tag items must be modified as needed. Smart tag items are specified with the **DesignerActionList** objects registered in the Component Designer. The **GetSelectionRulesCore** method modifies the control’s resize rules. Review the code in the following file for more information: [XRSwissQRBillDesignerActionList.cs](CS/Reporting-Custom-Controls/DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs).
 
-When you set up the property grid, pay close attention to expandable objects. In this example, the **ExpandableObjectConverter** descendants are created to override the **ConvertTo** method. The new **ConvertTo** method implementation changes the string displayed in the property grid editor.  The **GetProperties** method of the **AddressTypeConverter** removes properties which are not necessary for this address type. Review the code in the following file for more information: [TypeConverters.cs](DevExpress.XtraReports.CustomControls/SwissQRBill/TypeConverters.cs)
+When you set up the property grid, pay close attention to expandable objects. In this example, the **ExpandableObjectConverter** descendants are created to override the **ConvertTo** method. The new **ConvertTo** method implementation changes the string displayed in the property grid editor.  The **GetProperties** method of the **AddressTypeConverter** removes properties which are not necessary for this address type. Review the code in the following file for more information: [TypeConverters.cs](CS/Reporting-Custom-Controls/DevExpress.XtraReports.CustomControls/SwissQRBill/TypeConverters.cs)
 
 ## "Brick" Implementation
 
@@ -65,7 +65,7 @@ When you set up the property grid, pay close attention to expandable objects. In
 
 The exporter renders the "brick" and exports it to different formats. The exporter is specified with the **BrickExporter(Type)** attribute set for the "brick". In this example, we use the **PanelBrickExporter** and **VisualBrickExporter** descendants as exporters. The Draw methods are overridden to implement rendering. The Brick field is used to obtain access to the "brick".
 
-To create a "brick", override the **CreateBrick(VisualBrick[] childrenBricks)** method and return the "brick" instance. The **PutStateToBrick(VisualBrick brick, PrintingSystemBase ps)** method maps control properties to "brick" data. Review the code in the following file for more information: [XRSwissQRBill.cs](DevExpress.XtraReports.CustomControls/SwissQRBill/XRSwissQRBill.cs).
+To create a "brick", override the **CreateBrick(VisualBrick[] childrenBricks)** method and return the "brick" instance. The **PutStateToBrick(VisualBrick brick, PrintingSystemBase ps)** method maps control properties to "brick" data. Review the code in the following file for more information: [XRSwissQRBill.cs](CS/Reporting-Custom-Controls/DevExpress.XtraReports.CustomControls/SwissQRBill/XRSwissQRBill.cs).
 
 ### The Choice of Base Class
 
@@ -105,7 +105,7 @@ We must now have to render sub-regions, as shown in the image below.
 8. CreatePaymentInformation()
 9. CreatePaymentFurtherInformation()
 
-Review the code in the following file for more information: [SwissQRBillBrick.cs](DevExpress.XtraReports.CustomControls/SwissQRBill/SwissQRBillBrick.cs).
+Review the code in the following file for more information: [SwissQRBillBrick.cs](CS/Reporting-Custom-Controls/DevExpress.XtraReports.CustomControls/SwissQRBill/SwissQRBillBrick.cs).
 
 ### Exporter Implementation
 
@@ -128,13 +128,13 @@ The **DefaultValue** attribute determines whether the property value is included
 ### Brick Serialization
 
 Only XML serialization is necessary. For correct deserialization, map the "brick’s" text type (the overridden **BrickType** property at the Brick level) to the real type. The **BrickFactory.BrickResolve** method is used for mapping. For an
-implementation of the **BrickResolve** method, review the code in the following file: [CustomControl.cs](DevExpress.XtraReports.CustomControls/CustomControl.cs)
+implementation of the **BrickResolve** method, review the code in the following file: [CustomControl.cs](CS/Reporting-Custom-Controls/DevExpress.XtraReports.CustomControls/CustomControl.cs)
 
 ## Component Use
 
 To use the component in the Visual Studio Designer, add it to the Visual Studio Toolbox.
 
-To use the component in the End-User Designer, call the **AddSwissQRControlToToolBox** method with the **XRDesignMdiController** passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs).
+To use the component in the End-User Designer, call the **AddSwissQRControlToToolBox** method with the **XRDesignMdiController** passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](CS/Reporting-Custom-Controls/DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs).
 
 ## Conclusion
 
