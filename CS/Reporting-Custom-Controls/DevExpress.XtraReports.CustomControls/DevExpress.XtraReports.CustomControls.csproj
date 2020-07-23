@@ -85,6 +85,9 @@
     <Reference Include="DevExpress.XtraPrinting.v20.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.CodeParser.v20.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.XtraReports.v20.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -109,8 +112,8 @@
     <Compile Include="SwissQRBill\Constants.cs" />
     <Compile Include="SwissQRBill\CornerRectangleBrick.cs" />
     <Compile Include="SwissQRBill\DataModels\Address.cs" />
-    <Compile Include="SwissQRBill\DataModels\AlternativeSchema.cs" />
     <Compile Include="SwissQRBill\DataModels\AccountNumber.cs" />
+    <Compile Include="SwissQRBill\DataModels\AlternativeProcedures.cs" />
     <Compile Include="SwissQRBill\DataModels\QRBillDataItem.cs" />
     <Compile Include="SwissQRBill\DataModels\QRCodeDataElement.cs" />
     <Compile Include="SwissQRBill\DataModels\Version.cs" />

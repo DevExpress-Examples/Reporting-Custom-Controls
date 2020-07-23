@@ -18,7 +18,7 @@ namespace SwissQRBillExample {
     public static class DataSource {
         public static List<Order> GetOrders() {
             return new List<Order>() {
-                new Order() { BillItemStringInfo = TestData.BillWithTwoSchemas, OrderNumber=564245, 
+                new Order() { BillItemStringInfo = TestData.BillWithTwoProcedures, OrderNumber=564245, 
                     InvoiceItems = { new OrderItem() { Amount = 20, Count = 3, ProductCode = 1, ProductName = "Coffee" },
                                      new OrderItem() { Amount = 10, Count = 2, ProductCode = 2, ProductName = "Tea" },
                                      new OrderItem() { Amount = 2.30, Count = 1, ProductCode = 3, ProductName = "Gum" },

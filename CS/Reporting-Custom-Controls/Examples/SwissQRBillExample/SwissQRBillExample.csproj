@@ -81,6 +81,9 @@
     <Reference Include="DevExpress.XtraPrinting.v20.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="DevExpress.CodeParser.v20.1">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.XtraReports.v20.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>

@@ -277,13 +277,13 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             set { qrBillDataItem.StructuredInformation = value; }
         }
 
-        [DisplayName("Alternative Schema")]
-        [Description("Alternative Schema description")]
+        [DisplayName("Alternative Procedures")]
+        [Description("Alternative Procedures description")]
         [Category("Data")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [XtraSerializableProperty(XtraSerializationVisibility.Content)]
-        public AlternativeSchema AlternativeSchema {
-            get { return qrBillDataItem.AlternativeSchema; }
+        public AlternativeProcedures AlternativeProcedures {
+            get { return qrBillDataItem.AlternativeProcedures; }
         }
 
         static XRSwissQRBill() {

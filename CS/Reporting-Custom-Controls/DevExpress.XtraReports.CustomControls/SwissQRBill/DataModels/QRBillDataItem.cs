@@ -22,7 +22,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public string StructuredInformation { get; set; } = string.Empty;
         
-        public AlternativeSchema AlternativeSchema { get; } = new AlternativeSchema();
+        public AlternativeProcedures AlternativeProcedures { get; } = new AlternativeProcedures();
 
         public string QRCodeData {
             get { return ConvertToQRCodeDataString(); }
@@ -37,7 +37,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             CreditorAccountNumber.Reset();
             CreditorInformation.Reset();
             DebtorInformation.Reset();
-            AlternativeSchema.Reset();
+            AlternativeProcedures.Reset();
             AdditionalInformation = string.Empty;
             StructuredInformation = string.Empty;
         }
@@ -90,7 +90,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 ValidationError.ThrowValidationException(ValidationCode.InvalidFieldTrailer);
             StructuredInformation = rawData.Length > 31 ? rawData[31] : string.Empty;
             if(rawData.Length - 32 > 0)
-                AlternativeSchema.ConvertFromQRCodeDataString(rawData.Skip(32).Take(2).ToArray());
+                AlternativeProcedures.ConvertFromQRCodeDataString(rawData.Skip(32).Take(2).ToArray());
         }
 
         string ConvertToQRCodeDataString() {
@@ -107,9 +107,9 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             stringBuilder.AppendLine(ReferenceType.ToString());
             stringBuilder.AppendLine(Reference == null ? string.Empty : Reference.ConvertToQRCodeDataString());
             stringBuilder.AppendLine(AdditionalInformation);
-            stringBuilder.Append("EPD");
-            AddIfNotEmpty(stringBuilder, StructuredInformation);
-            AddIfNotEmpty(stringBuilder, AlternativeSchema.ConvertToQRCodeDataString());
+            stringBuilder.AppendLine("EPD");
+            stringBuilder.Append(StructuredInformation);
+            AddIfNotEmpty(stringBuilder, AlternativeProcedures.ConvertToQRCodeDataString());
             return stringBuilder.ToString();
         }
 

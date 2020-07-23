@@ -170,21 +170,21 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Constants.PaymentPayableToCurrencyWidth, Constants.PaymentAmountCornerSize, true);
         }
         VisualBrick CreatePaymentFurtherInformation() {
-            return CreateAlternativeSchemaSectionBrick(BillDataItem.AlternativeSchema);
+            return CreateAlternativeProceduresSectionBrick(BillDataItem.AlternativeProcedures);
         }
-        VisualBrick CreateAlternativeSchemaSectionBrick(AlternativeSchema schema) {
-            if(schema.IsEmpty)
+        VisualBrick CreateAlternativeProceduresSectionBrick(AlternativeProcedures procedures) {
+            if(procedures.IsEmpty)
                 return null;
             PanelBrick panelBrick = CreatePanelBrick(Constants.ReceiptPartFurtherInformationBounds);
 
             Font headerFont = CreateFont(FontFamily, Constants.PaymentFurtherInformationFontSize, Constants.HeaderFontStyle);
             Font instructionFont = CreateFont(FontFamily, Constants.PaymentFurtherInformationFontSize, Constants.ContentFontStyle);
 
-            AddAlternativeSchemaSectionPart(panelBrick, schema.Name1, schema.Instruction1, headerFont, instructionFont, 0);
+            AddAlternativeProceduresSectionPart(panelBrick, procedures.Name1, procedures.Instruction1, headerFont, instructionFont, 0);
 
-            if(!schema.IsSecondPairEmpty) {
+            if(!procedures.IsSecondPairEmpty) {
                 float y = panelBrick.Bricks.First().Rect.Bottom;
-                AddAlternativeSchemaSectionPart(panelBrick, schema.Name2, schema.Instruction2, headerFont, instructionFont, y);
+                AddAlternativeProceduresSectionPart(panelBrick, procedures.Name2, procedures.Instruction2, headerFont, instructionFont, y);
 
                 List<Brick> instructions = new List<Brick>(panelBrick.Bricks.Where(x => x.Location.X != 0));
                 float maxX = instructions.Max(x => x.Location.X);
@@ -193,7 +193,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
             return panelBrick;
         }
-        void AddAlternativeSchemaSectionPart(PanelBrick container, string name, string instruction, Font headerFont, Font instructionFont, float y) {
+        void AddAlternativeProceduresSectionPart(PanelBrick container, string name, string instruction, Font headerFont, Font instructionFont, float y) {
             VisualBrick nameHeaderBrick = CreateBestSizeTextBrick($"{name}:", headerFont, container.Size.Width);
             VisualBrick instructionBrick = CreateBestSizeTextBrick($"{instruction}", instructionFont, container.Size.Width);
             nameHeaderBrick.Location = new PointF(0, y);

@@ -19,9 +19,9 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         }
     }
 
-    public class AlternativeSchemaTypeConverter : ExpandableObjectConverter {
+    public class AlternativeProceduresTypeConverter : ExpandableObjectConverter {
         public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType) {
-            if(destinationType == typeof(string) && value is AlternativeSchema)
+            if(destinationType == typeof(string) && value is AlternativeProcedures)
                 return $"({(value).GetType().Name})";
             return base.ConvertTo(context, culture, value, destinationType);
         }

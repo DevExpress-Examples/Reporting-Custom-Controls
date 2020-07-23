@@ -5,14 +5,14 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
-    [TypeConverter(typeof(AlternativeSchemaTypeConverter))]
-    public partial class AlternativeSchema : QRCodeDataElement {
+    [TypeConverter(typeof(AlternativeProceduresTypeConverter))]
+    public partial class AlternativeProcedures : QRCodeDataElement {
         const string SplitterString = ": ";
 
-        static Tuple<string, string> ParseSchemaString(string schema) {
+        static Tuple<string, string> ParseProceduresString(string procedures) {
             string name = string.Empty;
             string instruction = string.Empty;
-            var splitResult = Regex.Split(schema, SplitterString);
+            var splitResult = Regex.Split(procedures, SplitterString);
             if(splitResult.Length > 0)
                 name = splitResult[0];
             if(splitResult.Length > 1)
@@ -50,12 +50,12 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public override void ConvertFromQRCodeDataString(string[] rawString) {
             if(rawString.Length > 0) {
-                var splitResult = ParseSchemaString(rawString[0]);
+                var splitResult = ParseProceduresString(rawString[0]);
                 Name1 = splitResult.Item1;
                 Instruction1 = splitResult.Item2;
             }
             if(rawString.Length > 1) {
-                var splitResult = ParseSchemaString(rawString[1]);
+                var splitResult = ParseProceduresString(rawString[1]);
                 Name2 = splitResult.Item1;
                 Instruction2 = splitResult.Item2;
             }
@@ -74,11 +74,11 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return string.Join(Environment.NewLine, result);
         }
 
-        public void Assign(AlternativeSchema schema) {
-            Name1 = schema.Name1;
-            Name2 = schema.Name2;
-            Instruction1 = schema.Instruction1;
-            Instruction2 = schema.Instruction2;
+        public void Assign(AlternativeProcedures procedures) {
+            Name1 = procedures.Name1;
+            Name2 = procedures.Name2;
+            Instruction1 = procedures.Instruction1;
+            Instruction2 = procedures.Instruction2;
         }
         public override void Reset() {
             Name1 = string.Empty;
