@@ -8,7 +8,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         public const string BillWithFullBillInfo = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXA\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\nS\r\nSimon Glarner\r\nBachliwis\r\n55\r\n8184\r\nBachenbulach\r\nCH\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n//bill information";
         public const string BillWithFullSectionFieldsEmpty = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXA\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\n\r\nEPD\r\n";
         public const string BillWithTwoProcedures = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXA\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n//bill information\r\nName AV1: UV;UltraPay005;12345\r\nName AV2: XY;XYService;54321";
-        public const string BillWithOneSchema = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXA\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n//bill information\r\nName AV1: XY;XYService;54321";
+        public const string BillWithOneProcedure = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXA\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n//bill information\r\nName AV1: XY;XYService;54321";
         public const string BillFromRealData = "SPC\r\n0200\r\n1\r\nCH4444995599000899901\r\nS\r\nHenri Schmid Service Switzerland AG\r\nMuseumstrasse\r\n258\r\n2501\r\nBiel\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n8690.00\r\nCHF\r\nS\r\nPia-Maria Rutschmann-Schnyder\r\nGrosse Marktgasse\r\n28\r\n9400\r\nRorschach\r\nCH\r\nSCOR\r\n210000000003139471430009017\r\nAuftrag vom 25.10.2019##S1/01/20170309/11/10201409/20/14000/22/36958/30/CH10646546/40/1020/41/3010\r\nEPD\r\n";
 
         public static List<QRBillDataItem> CreateData() {
@@ -19,7 +19,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 new QRBillDataItem() { QRCodeData = BillWithFullBillInfo },
                 new QRBillDataItem() { QRCodeData = BillWithFullSectionFieldsEmpty },
                 new QRBillDataItem() { QRCodeData = BillWithTwoProcedures },
-                new QRBillDataItem() { QRCodeData = BillWithOneSchema },
+                new QRBillDataItem() { QRCodeData = BillWithOneProcedure },
             };
         }
 
@@ -102,7 +102,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return result;
         }
 
-        public static QRBillDataItem Create_Test_Item_WithOneAlternativeSchemas() {
+        public static QRBillDataItem Create_Test_Item_WithOneAlternativeProcedures() {
             var result = new QRBillDataItem() {
                 CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
