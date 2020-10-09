@@ -64,7 +64,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public override string BrickType => nameof(SwissQRBillBrick);
 
-        public SwissQRBillBrick() {
+        public SwissQRBillBrick() : this(null) {
+
+        }
+        public SwissQRBillBrick(IBrickOwner brickOwner) : base(brickOwner) {
             BackColor = Color.Transparent;
             Sides = BorderSide.None;
         }

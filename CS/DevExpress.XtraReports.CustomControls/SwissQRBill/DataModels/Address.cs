@@ -108,7 +108,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             if(AddressType == AddressType.Structured) {
                 return string.Join(Environment.NewLine, ToChar(AddressType), Name, Street, BuildingNumber, PostalCode, Town, CountryCode);
             } else {
-                return string.Join(Environment.NewLine, AddressType, Name, AddressLine1, AddressLine2, string.Empty, string.Empty);
+                return string.Join(Environment.NewLine, ToChar(AddressType), Name, AddressLine1, AddressLine2, string.Empty, string.Empty);
             }
         }
 

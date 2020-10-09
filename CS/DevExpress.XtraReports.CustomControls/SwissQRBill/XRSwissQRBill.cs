@@ -315,7 +315,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return actualRect.Size;
         }
         protected override VisualBrick CreateBrick(VisualBrick[] childrenBricks) {
-            return new SwissQRBillBrick();
+            return new SwissQRBillBrick(this);
         }
         protected override void PutStateToBrick(VisualBrick brick, PrintingSystemBase ps) {
             base.PutStateToBrick(brick, ps);
