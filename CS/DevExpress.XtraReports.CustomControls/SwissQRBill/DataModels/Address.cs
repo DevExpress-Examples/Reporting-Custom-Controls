@@ -16,9 +16,6 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return null;
         }
 
-        const int DefaultPostalCode = 0;
-        const int DefaultBuildingNumber = 0;
-
         [DisplayName("Address Type")]
         [Description("Address Type desription")]
         [XtraSerializableProperty]
@@ -34,9 +31,9 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         [DisplayName("Building Number")]
         [Description("Building Number description")]
-        [DefaultValue(DefaultBuildingNumber)]
+        [DefaultValue("")]
         [XtraSerializableProperty]
-        public int BuildingNumber { get; set; } = DefaultBuildingNumber;
+        public string BuildingNumber { get; set; } = string.Empty;
 
         [DisplayName("Address Line 1")]
         [Description("Address Line 1 description")]
@@ -58,9 +55,9 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         [DisplayName("Postal Code")]
         [Description("Postal Code description")]
-        [DefaultValue(DefaultPostalCode)]
+        [DefaultValue("")]
         [XtraSerializableProperty]
-        public int PostalCode { get; set; } = DefaultPostalCode;
+        public string PostalCode { get; set; } = string.Empty;
 
         [DisplayName("Street")]
         [Description("Street description")]
@@ -80,10 +77,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             Name = rawString[1];
             if(AddressType == AddressType.Structured) {
                 Street = rawString[2];
-                if(int.TryParse(rawString[3], out int result))
-                    BuildingNumber = result;
-                if(int.TryParse(rawString[4], out result))
-                    PostalCode = result;
+                BuildingNumber = rawString[3];
+                PostalCode = rawString[4];
                 Town = rawString[5];
                 CountryCode = rawString[6];
             } else {
@@ -119,7 +114,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return AddressType == AddressType.Combined
                 ? string.IsNullOrEmpty(AddressLine1) && string.IsNullOrEmpty(AddressLine2)
                 : string.IsNullOrEmpty(Street) && string.IsNullOrEmpty(Town)
-                    && PostalCode == DefaultPostalCode && BuildingNumber == DefaultBuildingNumber;
+                    && string.IsNullOrEmpty(PostalCode) && string.IsNullOrEmpty(BuildingNumber);
         }
 
         public override void Reset() {
@@ -128,8 +123,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             Street = string.Empty;
             Town = string.Empty;
             CountryCode = string.Empty;
-            PostalCode = DefaultPostalCode;
-            BuildingNumber = DefaultBuildingNumber;
+            PostalCode = string.Empty;
+            BuildingNumber = string.Empty;
         }
     }
 }

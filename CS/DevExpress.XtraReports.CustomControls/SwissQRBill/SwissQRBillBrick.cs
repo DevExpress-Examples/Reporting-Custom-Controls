@@ -125,7 +125,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                     Constants.PaymentHeadingFontSize, Constants.PaymentValueFontSize, sectionBlockOffset);
 
             string debtorInformationString = GetDebtorInformationString();
-            AddOptionalInformationSection(panelBrick, SectionId.PayableByNameAddress, debtorInformationString,
+            AddOptionalInformationSection(panelBrick, SectionId.PayableBy, SectionId.PayableByNameAddress, debtorInformationString,
                 Constants.PaymentHeadingFontSize, Constants.PaymentValueFontSize, sectionBlockOffset, MmToDocConverter.Convert(Constants.PaymentPayableToCornerSize));
 
             return panelBrick;
@@ -233,7 +233,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                     Constants.ReceiptHeadingFontSize, Constants.ReceiptValueFontSize, sectionBlockOffset);
 
             string debtorInformationString = GetDebtorInformationString();
-            AddOptionalInformationSection(panelBrick, SectionId.PayableByNameAddress, debtorInformationString,
+            AddOptionalInformationSection(panelBrick, SectionId.PayableBy, SectionId.PayableByNameAddress, debtorInformationString,
                 Constants.ReceiptHeadingFontSize, Constants.ReceiptValueFontSize, sectionBlockOffset, MmToDocConverter.Convert(Constants.ReceiptPayableToCornerSize));
 
             return panelBrick;
@@ -307,12 +307,19 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
             AddSectionPartToContainer(container, headerBrick, contentBrick, startOffset);
         }
-        void AddOptionalInformationSection(PanelBrick container, SectionId headerLocalizationKey, string contentText, int headerFontSize, int contentFontSize, float startOffset, SizeF cornerSize) {
-            string headerText = LocalizationData.Instance[Language, headerLocalizationKey];
-            VisualBrick headerBrick = CreateBestSizeTextBrick(headerText, new Font(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
-            VisualBrick contentBrick = string.IsNullOrWhiteSpace(contentText)
-                ? new CornerRectangleBrick() { Rect = new RectangleF(PointF.Empty, cornerSize) }
-                    : (VisualBrick)CreateBestSizeTextBrick(contentText, new Font(FontFamily, contentFontSize, Constants.ContentFontStyle), container.Rect.Width);
+        void AddOptionalInformationSection(PanelBrick container, SectionId headerLocalizationKey, SectionId emptyHeaderLocalizationKey, string contentText, int headerFontSize, int contentFontSize, float startOffset, SizeF cornerSize) {
+            VisualBrick headerBrick;
+            VisualBrick contentBrick;
+
+            if(string.IsNullOrWhiteSpace(contentText)) {
+                string emptyHeaderText = LocalizationData.Instance[Language, emptyHeaderLocalizationKey];
+                headerBrick = CreateBestSizeTextBrick(emptyHeaderText, new Font(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
+                contentBrick = new CornerRectangleBrick() { Rect = new RectangleF(PointF.Empty, cornerSize) };
+            } else {
+                string headerText = LocalizationData.Instance[Language, headerLocalizationKey];
+                headerBrick = CreateBestSizeTextBrick(headerText, new Font(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
+                contentBrick = CreateBestSizeTextBrick(contentText, new Font(FontFamily, contentFontSize, Constants.ContentFontStyle), container.Rect.Width);
+            }
 
             AddSectionPartToContainer(container, headerBrick, contentBrick, startOffset);
         }
