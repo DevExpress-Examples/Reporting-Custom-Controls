@@ -5,10 +5,10 @@ using System.Text.RegularExpressions;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     public class QRBillDataItem {
-        public static Version Version = Version.V2_0;
-
+        public static Version Version = Version.V2_2;
+        double? amount = null;
         public Currency Currency { get; set; } = Currency.CHF;
-        public double? Amount { get; set; } = null;
+        public double? Amount { get { return amount; } set { amount = CoerceAmount(value); } }
 
         public AccountNumber CreditorAccountNumber { get; set; } = new AccountNumber();
 
@@ -120,5 +120,12 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             }
         }
 
+        double? CoerceAmount(double? amount) {
+            if(amount == null) {
+                return amount;
+            } else {
+                return amount.Value == 0d ? 0.1d : amount;
+            }
+        }
     }
 }

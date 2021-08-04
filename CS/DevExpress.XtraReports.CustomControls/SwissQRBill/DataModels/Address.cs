@@ -6,6 +6,7 @@ using DevExpress.Utils.Serializing;
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [TypeConverter(typeof(AddressTypeConverter))]
     public class Address : QRCodeDataElement {
+        const string Switzerland = "CH";
         static string ToChar(AddressType addressType) {
             switch(addressType) {
                 case AddressType.Structured:
@@ -91,9 +92,13 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         public override string ConvertToPresentationString() {
             if(IsEmpty())
                 return string.Empty;
-            if(AddressType == AddressType.Structured)
-                return string.Join(Environment.NewLine, Name, $"{Street} {BuildingNumber}", $"{PostalCode} {Town}");
-            else
+            if(AddressType == AddressType.Structured) {
+                if(CountryCode == Switzerland) {
+                    return string.Join(Environment.NewLine, Name, $"{Street} {BuildingNumber}", $"{PostalCode} {Town}");
+                } else {
+                    return string.Join(Environment.NewLine, Name, $"{Street} {BuildingNumber}", $"{CountryCode} {PostalCode} {Town}");
+                }
+            } else
                 return string.Join(Environment.NewLine, Name, AddressLine1, AddressLine2);
         }
 

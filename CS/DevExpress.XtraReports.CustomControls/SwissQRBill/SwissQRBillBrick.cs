@@ -144,6 +144,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             var panelBrick = CreatePanelBrick(Constants.QRCodeBounds);
             var generator = new QRCodeGenerator() {
                 Version = QRCodeVersion.Version10,
+                ErrorCorrectionLevel = QRCodeErrorCorrectionLevel.M,
                 CompactionMode = QRCodeCompactionMode.Byte,
             };
             TrySetIncludeQuietZone(generator); //This property is available in version 20.1.5 or later
