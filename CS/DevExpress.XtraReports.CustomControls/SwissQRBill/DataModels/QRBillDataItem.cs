@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     public class QRBillDataItem {
-        public static Version Version = Version.V2_2;
-        double? amount = null;
+        public static Version Version = Version.V2_0;
+        private double? amount = null;
+
         public Currency Currency { get; set; } = Currency.CHF;
         public double? Amount { get { return amount; } set { amount = CoerceAmount(value); } }
-
         public AccountNumber CreditorAccountNumber { get; set; } = new AccountNumber();
 
         public Address CreditorInformation { get; set; } = new Address();

@@ -30,8 +30,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         SwissQRBillBrick SwissQRBillBrick { get { return Brick as SwissQRBillBrick; } }
 
-        public override void Draw(IGraphics gr, RectangleF rect, RectangleF parentRect) {
-            base.Draw(gr, rect, parentRect);
+        public override void Draw(IGraphics gr, RectangleF rect) {
+            base.Draw(gr, rect);
             if(gr is IPdfGraphics)
                 DrawSeparators(gr, rect, SwissQRBillBrick.BillOptions.PdfSeparatorKind);
             else

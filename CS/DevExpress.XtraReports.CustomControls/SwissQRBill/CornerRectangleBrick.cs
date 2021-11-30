@@ -9,7 +9,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     }
 
     public class CornerRectangleBrickExporter : VisualBrickExporter {
-        public override void Draw(IGraphics gr, RectangleF rect, RectangleF parentRect) {
+        public override void Draw(IGraphics gr, RectangleF rect) {
             DrawCornedRectangle(gr, rect);
         }
 

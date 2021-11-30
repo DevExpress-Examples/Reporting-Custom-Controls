@@ -29,8 +29,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Amount = 287.30d,
                 Currency = Currency.EUR,
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
-                DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = "55", PostalCode = "8184", Street = "Bachliwis", Town = "Bachenbulach" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
+                DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = 55, PostalCode = 8184, Street = "Bachliwis", Town = "Bachenbulach" },
             };
         }
 
@@ -41,8 +41,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Currency = Currency.EUR,
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
-                DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = "55", PostalCode = "8184", Street = "Bachliwis", Town = "Bachenbulach" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
+                DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = 55, PostalCode = 8184, Street = "Bachliwis", Town = "Bachenbulach" },
             };
         }
 
@@ -54,8 +54,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
-                DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = "55", PostalCode = "8184", Street = "Bachliwis", Town = "Bachenbulach" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
+                DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = 55, PostalCode = 8184, Street = "Bachliwis", Town = "Bachenbulach" },
             };
         }
 
@@ -67,7 +67,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
         }
 
@@ -76,7 +76,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Currency = Currency.EUR,
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
         }
 
@@ -84,7 +84,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return new QRBillDataItem() {
                 CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Currency = Currency.EUR,
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
         }
 
@@ -96,7 +96,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
             result.AlternativeProcedures.Assign(new AlternativeProcedures() { Name1 = "Name AV1", Instruction1 = "UV;UltraPay005;12345", Name2 = "Name AV2", Instruction2 = "XY;XYService;54321" });
             return result;
@@ -110,7 +110,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = "138", PostalCode = "8045", Street = "Uetlibergstrasse", Town = "Zuric" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
             result.AlternativeProcedures.Assign(new AlternativeProcedures() { Name1 = "Name AV1", Instruction1 = "XY;XYService;54321" });
             return result;
@@ -123,8 +123,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 Currency = Currency.CHF,
                 Reference = new AccountNumber("210000000003139471430009017"),
                 AdditionalInformation = "Auftrag vom 25.10.2019##S1/01/20170309/11/10201409/20/14000/22/36958/30/CH10646546/40/1020/41/3010",
-                DebtorInformation = new Address() { CountryCode = "CH", Name = "Pia-Maria Rutschmann-Schnyder", BuildingNumber = "28", PostalCode = "9400", Street = "Grosse Marktgasse", Town = "Rorschach" },
-                CreditorInformation = new Address() { CountryCode = "CH", Name = "Henri Schmid Service Switzerland AG", BuildingNumber = "258", PostalCode = "2501", Street = "Museumstrasse", Town = "Biel" },
+                DebtorInformation = new Address() { CountryCode = "CH", Name = "Pia-Maria Rutschmann-Schnyder", BuildingNumber = 28, PostalCode = 9400, Street = "Grosse Marktgasse", Town = "Rorschach" },
+                CreditorInformation = new Address() { CountryCode = "CH", Name = "Henri Schmid Service Switzerland AG", BuildingNumber = 258, PostalCode = 2501, Street = "Museumstrasse", Town = "Biel" },
             };
             return result;
         }

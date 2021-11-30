@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.XtraReports.CustomControls.SwissQRBill;
 using DevExpress.XtraReports.UI;
 
 namespace SwissQRBillExample {
@@ -39,6 +40,27 @@ namespace SwissQRBillExample {
 
         public Report() {
             InitializeComponent();
+            //xrSwissQRBill1.CreditorIBAN = "CHXXXXXXXXXXXXXXXXXXA";
+            //xrSwissQRBill1.Amount = 287.30d;
+            //xrSwissQRBill1.Currency = DevExpress.XtraReports.CustomControls.SwissQRBill.Currency.EUR;
+            //xrSwissQRBill1.Reference = "RFXXXXXXXXXXXXXX";
+            //xrSwissQRBill1.AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987";
+            //xrSwissQRBill1.CreditorInformation.CountryCode = "CH";
+            //xrSwissQRBill1.CreditorInformation.Name = "Schreinerei Habegger & Sohne";
+            //xrSwissQRBill1.CreditorInformation.BuildingNumber = 138;
+            //xrSwissQRBill1.CreditorInformation.PostalCode = 8045;
+            //xrSwissQRBill1.CreditorInformation.Street = "Uetlibergstrasse";
+            //xrSwissQRBill1.CreditorInformation.Town = "Zuric";
+
+            //xrSwissQRBill1.DebtorInformation.CountryCode = "CH";
+            //xrSwissQRBill1.DebtorInformation.Name = "Simon Glarner";
+            //xrSwissQRBill1.DebtorInformation.BuildingNumber = 55;
+            //xrSwissQRBill1.DebtorInformation.PostalCode = 8184;
+            //xrSwissQRBill1.DebtorInformation.Street = "Bachliwis";
+            //xrSwissQRBill1.DebtorInformation.Town = "Bachenbulach";
+
+            xrSwissQRBill1.StringData = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXA\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\nS\r\nSimon Glarner\r\nBachliwis\r\n55\r\n8184\r\nBachenbulach\r\nCH\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n";
+
         }
 
         private void InitializeComponent() {
@@ -345,8 +367,8 @@ namespace SwissQRBillExample {
             // 
             this.xrSwissQRBill1.CreditorIBAN = "AA45XXXXXXXXXXXXXXXXA";
             this.xrSwissQRBill1.Dpi = 254F;
-            this.xrSwissQRBill1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StringData", "[BillItemStringInfo]")});
+            //this.xrSwissQRBill1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            //new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StringData", "[BillItemStringInfo]")});
             this.xrSwissQRBill1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrSwissQRBill1.Name = "xrSwissQRBill1";
             this.xrSwissQRBill1.Reference = "AA45XXXXXXXXXXXXXXXXA";

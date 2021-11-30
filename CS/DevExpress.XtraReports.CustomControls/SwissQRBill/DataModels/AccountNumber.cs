@@ -4,7 +4,7 @@ using System.Linq;
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     public class AccountNumber : QRCodeDataElement {
         static bool IsCreditorReference(string str) {
-            return str.StartsWith("RF") && str.Length > 4 && str.Length <= 25;
+            return str.Length == 16 && str.StartsWith("RF");
         }
         static bool IsIban(string str) {
             return str.Length == 21;
