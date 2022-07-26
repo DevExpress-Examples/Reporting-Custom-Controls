@@ -35,113 +35,113 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v21.2.Core">
+    <Reference Include="DevExpress.Charts.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Data.Desktop.v21.2">
+    <Reference Include="DevExpress.Data.Desktop.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Data.v21.2">
+    <Reference Include="DevExpress.Data.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Diagram.v21.2.Core">
+    <Reference Include="DevExpress.Diagram.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.DataAccess.v21.2">
+    <Reference Include="DevExpress.DataAccess.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Images.v21.2">
+    <Reference Include="DevExpress.Images.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Mvvm.v21.2">
+    <Reference Include="DevExpress.Mvvm.v22.1">
       <Aliases>global,MVVM</Aliases>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Office.v21.2.Core">
+    <Reference Include="DevExpress.Office.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.PivotGrid.v21.2.Core">
+    <Reference Include="DevExpress.PivotGrid.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Printing.v21.2.Core">
+    <Reference Include="DevExpress.Printing.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.RichEdit.v21.2.Core">
+    <Reference Include="DevExpress.RichEdit.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Sparkline.v21.2.Core">
+    <Reference Include="DevExpress.Sparkline.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Controls.v21.2">
+    <Reference Include="DevExpress.Xpf.Controls.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Core.v21.2">
+    <Reference Include="DevExpress.Xpf.Core.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.CodeView.v21.2">
+    <Reference Include="DevExpress.Xpf.CodeView.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.DataAccess.v21.2">
+    <Reference Include="DevExpress.Xpf.DataAccess.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Docking.v21.2">
+    <Reference Include="DevExpress.Xpf.Docking.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.DocumentViewer.v21.2.Core">
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.ExpressionEditor.v21.2">
+    <Reference Include="DevExpress.Xpf.ExpressionEditor.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v21.2">
+    <Reference Include="DevExpress.Xpf.Grid.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Grid.v21.2.Core">
+    <Reference Include="DevExpress.Xpf.Grid.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Layout.v21.2.Core">
+    <Reference Include="DevExpress.Xpf.Layout.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.LayoutControl.v21.2">
+    <Reference Include="DevExpress.Xpf.LayoutControl.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.NavBar.v21.2">
+    <Reference Include="DevExpress.Xpf.NavBar.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.PivotGrid.v21.2">
+    <Reference Include="DevExpress.Xpf.PivotGrid.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Printing.v21.2">
+    <Reference Include="DevExpress.Xpf.Printing.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.ReportDesigner.v21.2">
+    <Reference Include="DevExpress.Xpf.ReportDesigner.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Ribbon.v21.2">
+    <Reference Include="DevExpress.Xpf.Ribbon.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.RichEdit.v21.2">
+    <Reference Include="DevExpress.Xpf.RichEdit.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpo.v21.2">
+    <Reference Include="DevExpress.Xpo.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.CodeParser.v21.2">
+    <Reference Include="DevExpress.CodeParser.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v21.2">
+    <Reference Include="DevExpress.XtraCharts.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v21.2.Core">
+    <Reference Include="DevExpress.XtraGauges.v22.1.Core">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.XtraReports.v21.2">
+    <Reference Include="DevExpress.XtraReports.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.PropertyGrid.v21.2">
+    <Reference Include="DevExpress.Xpf.PropertyGrid.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="DevExpress.Xpf.Diagram.v21.2">
+    <Reference Include="DevExpress.Xpf.Diagram.v22.1">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="ReachFramework" />

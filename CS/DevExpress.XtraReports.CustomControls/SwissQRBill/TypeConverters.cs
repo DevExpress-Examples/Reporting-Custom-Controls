@@ -28,7 +28,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     }
 
     public class AddressTypeConverter : ExpandableObjectConverter {
-        readonly string[] CombinedSpecificProps = new string[] { nameof(Address.AddressLine1), nameof(Address.AddressLine2), nameof(Address.CountryCode) };
+        readonly string[] CombinedSpecificProps = new string[] { nameof(Address.AddressLine1), nameof(Address.AddressLine2) };
         readonly string[] StructuredSpecificProps = new string[] { nameof(Address.CountryCode), nameof(Address.BuildingNumber),
             nameof(Address.PostalCode), nameof(Address.Street), nameof(Address.Town) };
 

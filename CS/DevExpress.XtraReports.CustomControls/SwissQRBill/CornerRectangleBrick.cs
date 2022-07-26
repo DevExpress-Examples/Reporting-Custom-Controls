@@ -1,3 +1,4 @@
+using DevExpress.Drawing;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraPrinting.BrickExporters;
 using System.Drawing;
@@ -16,7 +17,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         public void DrawCornedRectangle(IGraphics gr, RectangleF rect) {
             float markSize = GraphicsUnitConverter.Convert(Constants.CornerMarkSize, GraphicsDpi.Millimeter, GraphicsDpi.UnitToDpi(gr.PageUnit));
             float markThickness = GraphicsUnitConverter.Convert(Constants.CornerMarkThickness, GraphicsDpi.Point, GraphicsDpi.UnitToDpi(gr.PageUnit));
-            SolidBrush brush = BrickPaint.GetBrush(Color.Black);
+            DXSolidBrush brush = BrickPaint.GetBrush(Color.Black);
 
             //Top Left
             RectangleF vertLine = new RectangleF(rect.Location, new SizeF(markThickness, markSize));

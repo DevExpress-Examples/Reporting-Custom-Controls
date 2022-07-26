@@ -323,6 +323,15 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             swissQRBillBrick.BillKind = BillKind;
             swissQRBillBrick.BillOptions.Assign(BillOptions);
             swissQRBillBrick.GenerateContent(qrBillDataItem);
+            foreach(var innerBrick in swissQRBillBrick.Bricks) {
+                InitializeInnerBrick(innerBrick, ps);
+            }
+        }
+        void InitializeInnerBrick(Brick brick, PrintingSystemBase ps) {
+            foreach(var innerBrick in brick.Bricks) {
+                InitializeInnerBrick(innerBrick, ps);
+            }
+            brick.Initialize(ps, brick.Rect);
         }
         protected override void GetStateFromBrick(VisualBrick brick) {
             base.GetStateFromBrick(brick);

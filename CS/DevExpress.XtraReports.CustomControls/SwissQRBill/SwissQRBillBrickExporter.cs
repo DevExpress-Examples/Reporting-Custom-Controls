@@ -1,3 +1,5 @@
+using DevExpress.Drawing;
+using DevExpress.Drawing.Platform.GdiPlus;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraPrinting.BrickExporters;
 using DevExpress.XtraReports.CustomControls.Properties;
@@ -68,7 +70,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             var size = BoundsCalculator.GetSeparateLineTextSize(SwissQRBillBrick);
             var text = LocalizationData.Instance[SwissQRBillBrick.BillOptions.Language, SectionId.SeparateBeforePayingIn];
             BrickStringFormat bsf = new BrickStringFormat(StringAlignment.Center, StringAlignment.Center);
-            gr.DrawString(text, GetSeparatorLineTextFont(), Brushes.Black, new RectangleF(rect.Location, size), bsf.Value);
+            gr.DrawString(text, GetSeparatorLineTextFont(), gr.GetBrush(Color.Black), new RectangleF(rect.Location, size), bsf.DXValue);
         }
         Font GetSeparatorLineTextFont() {
             //there is no font size in specification
@@ -76,14 +78,14 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         }        
         void DrawVerticalScissors(IGraphics gr, RectangleF rect) {
             PointF offset = BoundsCalculator.GetVerticalScissorsOffset(SwissQRBillBrick);
-            gr.DrawImage(Resources.VerticalScissors, new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
+            gr.DrawImage(GdiPlusImage.Wrap(Resources.VerticalScissors), new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
         }
         void DrawHorizontalScissors(IGraphics gr, RectangleF rect) {
             PointF offset = BoundsCalculator.GetHorizontalScissorsOffset(SwissQRBillBrick);
-            gr.DrawImage(Resources.HorizontalScissors, new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
+            gr.DrawImage(GdiPlusImage.Wrap(Resources.HorizontalScissors), new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
         }
         void DrawVerticallLine(IGraphics gr, RectangleF rect, SeparatorKind separationLineDrawMode) {
-            Pen pen = BrickPaint.GetPen(Color.Black, GraphicsUnitConverter.DipToDoc(1f));
+            DXPen pen = BrickPaint.GetPen(Color.Black, GraphicsUnitConverter.DipToDoc(1f));
             pen.DashStyle = GetPenDashStyle(separationLineDrawMode);
             pen.DashPattern = GetDashPattern(pen.DashStyle);
 
@@ -93,7 +95,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             gr.DrawLine(pen, point1, point2);
         }
         void DrawHorizontalLine(IGraphics gr, RectangleF rect, SeparatorKind separationLineDrawMode) {
-            Pen pen = BrickPaint.GetPen(Color.Black, GraphicsUnitConverter.DipToDoc(1f));
+            DXPen pen = BrickPaint.GetPen(Color.Black, GraphicsUnitConverter.DipToDoc(1f));
             pen.DashStyle = GetPenDashStyle(separationLineDrawMode);
             pen.DashPattern = GetDashPattern(pen.DashStyle);
 

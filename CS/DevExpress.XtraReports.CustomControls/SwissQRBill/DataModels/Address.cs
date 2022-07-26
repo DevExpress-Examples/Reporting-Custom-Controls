@@ -90,7 +90,6 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             } else {
                 AddressLine1 = rawString[2];
                 AddressLine2 = rawString[3];
-                CountryCode = rawString[6];
             }
         }
 
@@ -115,7 +114,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             if(AddressType == AddressType.Structured) {
                 return string.Join(Environment.NewLine, ToChar(AddressType), Name, Street, BuildingNumber, PostalCode, Town, CountryCode);
             } else {
-                return string.Join(Environment.NewLine, ToChar(AddressType), Name, AddressLine1, AddressLine2, string.Empty, string.Empty, CountryCode);
+                return string.Join(Environment.NewLine, AddressType, Name, AddressLine1, AddressLine2, string.Empty, string.Empty);
             }
         }
 
