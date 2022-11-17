@@ -1,4 +1,4 @@
-# How to Create a Custom DevExpress Report Control - Controls with Rounded Corners
+# How to Create Controls with Rounded Corners
 
 This example demonstrates two custom controls. They have custom "brick" and "brick" exporter classes.
 
@@ -33,7 +33,7 @@ The exporter renders the "brick" and exports it to different formats. The export
 
 ### General Concepts
 
-Both the control and the "brick" require serialization. The "brick" only uses xml serialization, and the control implements xml serialization and supports CodeDom serialization - which is mandatory for the Visual Studio Designer.
+Both the control and the "brick" require serialization. The "brick" only uses XML serialization, and the control implements XML serialization and supports CodeDom serialization - which is mandatory for the Visual Studio Designer.
 
 ### Control Serialization
 

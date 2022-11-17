@@ -2,7 +2,7 @@
 
 ## Report Control Development Steps
 
-To create a new report control, you must:
+To create a new report control, do the following:
 
 1. Choose a base class. If you cannot find a suitable control to derive from, inherit a component from the [XRControl](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.XRControl) class.
 
@@ -10,7 +10,7 @@ To create a new report control, you must:
 
 3. Create component designers for Visual Studio and the End User Designer. Designers determine the component's appearance and behavior at design time. Add attributes as necessary.
 
-4. Choose the base class for the component's “brick.” An obvious choice is the brick that the base class creates. However, if the component inherits from the [XRControl](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.XRControl) class, there are two options - select [VisualBrick](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.VisualBrick) as the brick's base class if you require a simple brick or [PanelBrick](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.PanelBrick) if you need a container. 
+4. Choose the base class for the component's “brick” - such as the brick that the base class creates. However, if the component inherits from the [XRControl](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.XRControl) class, there are two options - select [VisualBrick](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.VisualBrick) as the brick's base class if you require a simple brick or [PanelBrick](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPrinting.PanelBrick) if you need a container. 
 
 5. Specify how the component creates its "brick" and map the component's properties to the brick's characteristics.
 
@@ -22,4 +22,4 @@ Refer to the following document for information on **XRSwissQRBill** implementat
 
 ## XRRoundLabel and XRRoundPanel
 
-Refer to the following document for information on **XRRoundLabel and XRRoundPanel** implementation: [How to Create a Custom DevExpress Report Control - Rounded Border Control](./DevExpress.XtraReports.CustomControls.RoundedControls/Readme.md).
+Refer to the following document for information on **XRRoundLabel and XRRoundPanel** implementation: [How to Create Controls with Rounded Corners](./DevExpress.XtraReports.CustomControls.RoundedControls/Readme.md).
