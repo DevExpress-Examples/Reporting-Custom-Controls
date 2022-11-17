@@ -25,7 +25,7 @@ A "full" invoice contains a receipt whereas a "short" invoice only contains paym
 
 Invoices are printed (or exported to PDF) on A4 or A6 paper, with a perforation line specified via **BillOption.PreviewSeparatorKind** and **BillOption.PdfSeparatorKind** properties, respectively. The component allows you to change the language and font for any field. The **StringData** property can be used to bind the field to an external data source. 
 
-## Report Control Development – An Overview 
+## Report Control Development
 
 To create a new report control, you must:
 
@@ -55,7 +55,7 @@ The WinForms End-User Designer requires that the component is registered with th
 
 To implement design-time functionality for the component, add the **Designer** and **XRDesigner** attributes for Visual Studio and the WinForms End-User Designer, respectively. The control's resize rules and smart tag items must be modified as needed. Smart tag items are specified with the **DesignerActionList** objects registered in the Component Designer. The **GetSelectionRulesCore** method modifies the control’s resize rules. Review the code in the following file for more information: [XRSwissQRBillDesignerActionList.cs](../../DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs).
 
-When you set up the property grid, pay close attention to expandable objects. In this example, the **ExpandableObjectConverter** descendants are created to override the **ConvertTo** method. The new **ConvertTo** method implementation changes the string displayed in the property grid editor.  The **GetProperties** method of the **AddressTypeConverter** removes properties which are not necessary for this address type. Review the code in the following file for more information: [TypeConverters.cs](../../DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/TypeConverters.cs)
+When you set up the property grid, pay close attention to expandable objects. In this example, the **ExpandableObjectConverter** descendants are created to override the **ConvertTo** method. The new **ConvertTo** method implementation changes the string displayed in the property grid editor.  The **GetProperties** method of the **AddressTypeConverter** removes properties which are not necessary for this address type. Review the code in the following file for more information: [TypeConverters.cs](../../DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/TypeConverters.cs).
 
 ## "Brick" Implementation
 
@@ -139,3 +139,26 @@ To use the component in the End-User Designer, call the **AddSwissQRControlToToo
 ## Conclusion
 
 You have now created your own custom reporting component. If you have technical questions on this subject, please feel free to contact our support team via the DevExpress [Support Center](https://supportcenter.devexpress.com/).
+
+## Files to Review
+
+- [XRSwissQRBill.cs](../../DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs)
+- [SwissQRBillCustomControl.cs](../../\DevExpress.XtraReports.CustomControls.SwissQRBill\SwissQRBillCustomControl.cs)
+- [SwissQRBillBrick.cs](../../DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/SwissQRBillBrick.cs)
+- [CustomControlToolBoxRegistrator.cs](../../DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+- [XRSwissQRBillDesignerActionList.cs](../../DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs)
+- [TypeConverters.cs](../../DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/TypeConverters.cs)
+
+
+## Documentation
+
+- [Use Custom Controls](https://docs.devexpress.com/XtraReports/2607/detailed-guide-to-devexpress-reporting/use-report-controls/use-custom-controls)
+
+## More Examples
+
+- [Create a Custom Numeric Label](https://github.com/DevExpress-Examples/Reporting-Create-Custom-Numeric-Label)
+- [Create a Custom Progress Bar Control](https://github.com/DevExpress-Examples/Reporting_how-to-create-custom-report-controls-e57)
+- [Add a Custom Control to the End-User Report Designer Toolbox (WPF)](https://github.com/DevExpress-Examples/Reporting_wpf-end-user-report-designer-how-to-register-a-custom-control-in-the-designers-t416384)
+- [Custom Report Control in the Web End User Designer Toolbox (ASP.NET Web Forms)](https://github.com/DevExpress-Examples/Reporting_aspxreportdesigner-how-to-register-a-custom-control-in-the-designers-toolbox-t209289)
+- [Custom Report Control in the Web End User Designer Toolbox (ASP.NET MVC)](https://github.com/DevExpress-Examples/Reporting-AspNetMvc-Create-Custom-Control)
+- [Custom Report Control in the Web End User Designer Toolbox in ASP.NET Core Application](https://github.com/DevExpress-Examples/Reporting-AspNetCore-Create-Custom-Control) 

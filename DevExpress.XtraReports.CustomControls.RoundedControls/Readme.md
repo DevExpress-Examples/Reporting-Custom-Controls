@@ -1,6 +1,6 @@
 # How to Create Controls with Rounded Corners
 
-This example demonstrates two custom controls. They have custom "brick" and "brick" exporter classes.
+This example demonstrates two custom controls. For each control there is a custom "brick" class, and a custom "brick exporter" class.
 
 ## Label with Rounded Corners
 | | Control | Brick | Brick Exporter |
@@ -21,6 +21,8 @@ This example demonstrates two custom controls. They have custom "brick" and "bri
 To add a component to the Visual Studio Toolbox, the component must have the a **ToolBoxItem(true)** attribute. 
 
 Design-time functionality is inherited from the base controls.
+
+Each control has the `BorderCornerRadius` public property that defines the degree to which corners are rounded. The `BorderCornerRadius` value is used by the [RoundedBorderPaintHelper](./RoundedBorderPaintHelper.cs) methods to draw background and borders.
 
 ### "Brick"
 
@@ -57,3 +59,28 @@ To use the component in the End-User Designer, call the `AddRoundedLabelToToolBo
 When you run this project, the `XRRoundLabel` and `XRRoundPanel` controls are available in the Toolbox. You can drag-and-drop them to the design area:
 
 ![Custom Controls with Rounded Corners](../Images/rounded-controls.png)
+
+## Files to Review
+
+- [XRRoundLabel](Label/XRRoundLabel.cs)
+- [RoundLabelBrick](Label/RoundLabelBrick.cs)
+- [RoundLabelBrickExporter](Label/RoundLabelBrickExporter.cs)
+- [XRRoundPanel](Panel/XRRoundPanel.cs)
+- [RoundPanelBrick](Panel/RoundPanelBrick.cs)
+- [RoundLabelBrickExporter](Panel/RoundPanelBrickExporter.cs)
+- [RoundedBorderPaintHelper](./RoundedBorderPaintHelper.cs)
+- [RoundedCustomControl.cs](../DevExpress.XtraReports.CustomControls.RoundedControls/RoundedCustomControl.cs)
+- [CustomControlToolBoxRegistrator.cs](../DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+
+## Documentation
+
+- [Use Custom Controls](https://docs.devexpress.com/XtraReports/2607/detailed-guide-to-devexpress-reporting/use-report-controls/use-custom-controls)
+
+## More Examples
+
+- [Create a Custom Numeric Label](https://github.com/DevExpress-Examples/Reporting-Create-Custom-Numeric-Label)
+- [Create a Custom Progress Bar Control](https://github.com/DevExpress-Examples/Reporting_how-to-create-custom-report-controls-e57)
+- [Add a Custom Control to the End-User Report Designer Toolbox (WPF)](https://github.com/DevExpress-Examples/Reporting_wpf-end-user-report-designer-how-to-register-a-custom-control-in-the-designers-t416384)
+- [Custom Report Control in the Web End User Designer Toolbox (ASP.NET Web Forms)](https://github.com/DevExpress-Examples/Reporting_aspxreportdesigner-how-to-register-a-custom-control-in-the-designers-toolbox-t209289)
+- [Custom Report Control in the Web End User Designer Toolbox (ASP.NET MVC)](https://github.com/DevExpress-Examples/Reporting-AspNetMvc-Create-Custom-Control)
+- [Custom Report Control in the Web End User Designer Toolbox in ASP.NET Core Application](https://github.com/DevExpress-Examples/Reporting-AspNetCore-Create-Custom-Control) 

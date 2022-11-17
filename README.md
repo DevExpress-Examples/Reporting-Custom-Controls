@@ -1,8 +1,3 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/274919437/2022.2)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T906638)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-<!-- default badges end -->
 # How to Create a Custom DevExpress Report Control
 
 ## Report Control Development Steps
@@ -28,3 +23,39 @@ Refer to the following document for information on **XRSwissQRBill** implementat
 ## XRRoundLabel and XRRoundPanel
 
 Refer to the following document for information on **XRRoundLabel and XRRoundPanel** implementation: [How to Create Controls with Rounded Corners](./DevExpress.XtraReports.CustomControls.RoundedControls/Readme.md).
+
+## Files to Review
+
+### XRSwissQRBill
+
+- [XRSwissQRBill.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs)
+- [SwissQRBillCustomControl.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill\SwissQRBillCustomControl.cs)
+- [SwissQRBillBrick.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/SwissQRBillBrick.cs)
+- [CustomControlToolBoxRegistrator.cs](/DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+- [XRSwissQRBillDesignerActionList.cs](/DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs)
+- [TypeConverters.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/TypeConverters.cs)
+
+### XRRoundLabel and XRRoundPanel
+
+- [XRRoundLabel.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Label/XRRoundLabel.cs)
+- [RoundLabelBrick.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Label/RoundLabelBrick.cs)
+- [RoundLabelBrickExporter.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Label/RoundLabelBrickExporter.cs)
+- [XRRoundPanel.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Panel/XRRoundPanel.cs)
+- [RoundPanelBrick.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Panel/RoundPanelBrick.cs)
+- [RoundLabelBrickExporter.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Panel/RoundPanelBrickExporter.cs)
+- [RoundedBorderPaintHelper.cs](./DevExpress.XtraReports.CustomControls.RoundedControls/RoundedBorderPaintHelper.cs)
+- [RoundedCustomControl.cs](./DevExpress.XtraReports.CustomControls.RoundedControls/RoundedCustomControl.cs)
+- [CustomControlToolBoxRegistrator.cs](./DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+
+## Documentation
+
+- [Use Custom Controls](https://docs.devexpress.com/XtraReports/2607/detailed-guide-to-devexpress-reporting/use-report-controls/use-custom-controls)
+
+## More Examples
+
+- [Create a Custom Numeric Label](https://github.com/DevExpress-Examples/Reporting-Create-Custom-Numeric-Label)
+- [Create a Custom Progress Bar Control](https://github.com/DevExpress-Examples/Reporting_how-to-create-custom-report-controls-e57)
+- [Add a Custom Control to the End-User Report Designer Toolbox (WPF)](https://github.com/DevExpress-Examples/Reporting_wpf-end-user-report-designer-how-to-register-a-custom-control-in-the-designers-t416384)
+- [Custom Report Control in the Web End User Designer Toolbox (ASP.NET Web Forms)](https://github.com/DevExpress-Examples/Reporting_aspxreportdesigner-how-to-register-a-custom-control-in-the-designers-toolbox-t209289)
+- [Custom Report Control in the Web End User Designer Toolbox (ASP.NET MVC)](https://github.com/DevExpress-Examples/Reporting-AspNetMvc-Create-Custom-Control)
+- [Custom Report Control in the Web End User Designer Toolbox in ASP.NET Core Application](https://github.com/DevExpress-Examples/Reporting-AspNetCore-Create-Custom-Control) 
