@@ -4,6 +4,7 @@ using DevExpress.XtraPrinting;
 using DevExpress.XtraReports.Localization;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraReports.UserDesigner;
+using System;
 using System.ComponentModel;
 
 namespace DevExpress.XtraReports.CustomControls.RoundBordersControls {
@@ -21,8 +22,11 @@ namespace DevExpress.XtraReports.CustomControls.RoundBordersControls {
                 return borderCornerRadius;
             }
             set {
-                if(value <= (HeightF / 2 - BorderWidth) || IsDeserializing) {
+                float maxRadius = HeightF / 2 - BorderWidth;
+                if(value <= maxRadius || IsDeserializing) {
                     borderCornerRadius = value;
+                } else {
+                    throw new Exception($"Value should be between 0-{(int)maxRadius}");
                 }
             }
         }

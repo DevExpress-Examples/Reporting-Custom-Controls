@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Reports\**" />
+    <Content Remove="Reports\**" />
+    <EmbeddedResource Remove="Reports\**" />
+    <None Remove="Reports\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\nwind.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\nwind.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PredefinedReports\*.vsrepx" />
+  </ItemGroup>
+  <Target Name="DebugEnsureNodeEnv" BeforeTargets="LibraryManagerRestore" Condition=" '$(Configuration)' == 'Debug' And !Exists('node_modules') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+    <Exec Command="npm install" />
+  </Target>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite" Version="1.0.109.2" />
+    <PackageReference Include="DevExpress.AspNetCore.Reporting" Version="22.2.*-*" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
+    <PackageReference Include="BuildBundlerMinifier" Version="3.0.415" />
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.RoundedControls\DevExpress.XtraReports.CustomControls.RoundedControls.csproj" />
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.SwissQRBill\DevExpress.XtraReports.CustomControls.SwissQRBill.csproj" />
+    <ProjectReference Include="..\CustomControlExample.Report\CustomControlExample.Report.csproj" />
+  </ItemGroup>
+</Project>

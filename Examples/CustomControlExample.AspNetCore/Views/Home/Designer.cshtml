@@ -1,0 +1,59 @@
+@using DevExpress.XtraReports.CustomControls.RoundBordersControls;
+
+@{
+    var designerRender = Html.DevExpress().ReportDesigner("reportDesigner")
+                                .Height("1000px")
+                                .ClientSideEvents(c => {
+                                    c.CustomizeToolbox("onCustomizeToolbox");
+                                })
+                                .Bind("TestReport");
+    @designerRender.RenderHtml()
+
+    string shortTypeNameLabel = typeof(XRRoundLabel).FullName;
+    string fullTypeNameLabel = typeof(XRRoundLabel).AssemblyQualifiedName;
+
+    string shortTypeNamePanel = typeof(XRRoundPanel).FullName;
+    string fullTypeNamePanel = typeof(XRRoundPanel).AssemblyQualifiedName;
+}
+
+<script type="text/html" id="dxrd-svg-toolbox-devexpress_xtrareports_customcontrols_roundborderscontrols_xrroundlabel">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#a)">
+        <path d="M22.7 28H27L18.3 4h-4.7L5 28h4.3l2.2-6h9.1l2.1 6Zm-9.8-10L16 9.4l3.1 8.6h-6.2Z" fill="#1177D7"/>
+        <rect x="1" y="1" width="30" height="30" rx="5" stroke="#727272" stroke-width="2"/>
+      </g>
+      <defs>
+        <clipPath id="a">
+          <path fill="#fff" d="M0 0h32v32H0z"/>
+        </clipPath>
+      </defs>
+    </svg>
+</script>
+
+
+<script type="text/html" id="dxrd-svg-toolbox-devexpress_xtrareports_customcontrols_roundborderscontrols_xrroundpanel">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M23 6H9a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3Z" fill="#B8B8B8"/>
+      <rect x="3" y="3" width="26" height="26" rx="5" stroke="#727272" stroke-width="2"/>
+    </svg>
+</script>
+
+<script type="text/javascript" id="script">
+    function onCustomizeToolbox(s, e) {
+        customizeToolbox(s, e, '@shortTypeNamePanel', '@fullTypeNamePanel', "XRPanel", "Rounded Panel", 20);
+        customizeToolbox(s, e, '@shortTypeNameLabel', '@fullTypeNameLabel', "XRLabel", "Rounded Label", 8);
+    }
+</script>
+
+@section Scripts {
+<link href="~/css/dx-reporting-skeleton-screen.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/viewer.part.bundle.css" />
+<link rel="stylesheet" href="~/css/designer.part.bundle.css" />
+
+<script src="~/js/customControl.js"></script>
+<script src="~/js/reporting.thirdparty.bundle.js"></script>
+<script src="~/js/viewer.part.bundle.js"></script>
+<script src="~/js/designer.part.bundle.js"></script>
+
+    @designerRender.RenderScripts()
+}

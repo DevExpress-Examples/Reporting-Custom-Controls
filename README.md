@@ -1,8 +1,3 @@
-<!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/274919437/2022.2)
-[![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T906638)
-[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
-<!-- default badges end -->
 # How to Create a Custom DevExpress Report Control
 
 ## Report Control Development Steps
@@ -23,11 +18,25 @@ To create a new report control, do the following:
 
 ## XRSwissQRBill
 
-Refer to the following document for information on **XRSwissQRBill** implementation: [How to Create a Custom DevExpress Report Control - Swiss QR Bill Implementation](./Examples/SwissQRBillExample/Readme.md).
+Refer to the following document for information on **XRSwissQRBill** implementation: [How to Create a Custom DevExpress Report Control - Swiss QR Bill Implementation](./DevExpress.XtraReports.CustomControls.SwissQRBill/Readme.md).
 
 ## XRRoundLabel and XRRoundPanel
 
 Refer to the following document for information on **XRRoundLabel and XRRoundPanel** implementation: [How to Create Controls with Rounded Corners](./DevExpress.XtraReports.CustomControls.RoundedControls/Readme.md).
+
+## Examples
+
+### WinForms
+
+Run the sample project to invoke the WinForms End-User Report Designer with a toolbox that contains the [XRSwissQRBill](./DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs), [XRRoundLabel](./DevExpress.XtraReports.CustomControls.RoundedControls/Label/XRRoundLabel.cs) and [XRRoundPanel](./DevExpress.XtraReports.CustomControls.RoundedControls/Panel/XRRoundPanel.cs) controls.
+
+The project is in the [Examples/CustomControlExample.Win](./Examples/CustomControlExample.Win/) folder. File to review: [Program.cs](./Examples/CustomControlExample.Win/Program.cs).
+
+### ASP.NET Core
+
+Run the sample project to invoke the ASP.NET Core End-User Report Designer with a toolbox that contains the [XRRoundLabel](./DevExpress.XtraReports.CustomControls.RoundedControls/Label/XRRoundLabel.cs), and [XRRoundPanel](./DevExpress.XtraReports.CustomControls.RoundedControls/Panel/XRRoundPanel.cs) controls.
+
+The project is in the [Examples/CustomControlExample.AspNetCore](./Examples/CustomControlExample.AspNetCore/) folder. Files to review: [Startup.cs](./Examples/CustomControlExample.AspNetCore/Startup.cs) and [Designer.cshtml](./Examples/CustomControlExample.AspNetCore/Views/Home/Designer.cshtml).
 
 ## Files to Review
 

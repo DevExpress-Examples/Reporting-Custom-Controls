@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net4.5.2</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Reporting.Core" Version="22.2.*-*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.Design\DevExpress.XtraReports.CustomControls.Design.csproj" />
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.RoundedControls\DevExpress.XtraReports.CustomControls.RoundedControls.csproj" />
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.SwissQRBill\DevExpress.XtraReports.CustomControls.SwissQRBill.csproj" />
+  </ItemGroup>
+</Project>

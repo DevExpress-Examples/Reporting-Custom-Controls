@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-windows;net4.5.2</TargetFrameworks>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Win.Reporting" Version="22.2.*-*" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.Design\DevExpress.XtraReports.CustomControls.Design.csproj" />
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.RoundedControls\DevExpress.XtraReports.CustomControls.RoundedControls.csproj" />
+    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.SwissQRBill\DevExpress.XtraReports.CustomControls.SwissQRBill.csproj" />
+    <ProjectReference Include="..\CustomControlExample.Report\CustomControlExample.Report.csproj" />
+  </ItemGroup>
+</Project>

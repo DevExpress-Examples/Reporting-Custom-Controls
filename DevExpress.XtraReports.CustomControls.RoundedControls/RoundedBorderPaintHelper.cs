@@ -8,7 +8,7 @@ namespace DevExpress.XtraReports.CustomControls {
     public static class RoundedBorderPaintHelper {
         public static void DrawRoundedBackGround(IGraphics gr, RectangleF rect, BrickStyle Style, BrickPaintBase painter, int radius) {
             var borderWidth = GraphicsUnitConverter.Convert(Style.BorderWidth, GraphicsDpi.DeviceIndependentPixel, GraphicsDpi.UnitToDpi((GraphicsUnit)gr.PageUnit));
-            rect = RectHelper.AdjustBorderRect(rect, BorderSide.All, borderWidth, Style.BorderStyle);
+            rect = RectangleF.Inflate(rect, -borderWidth / 2, -borderWidth / 2);
             DXGraphicsPath path = BuildPath(gr, rect, radius);
             gr.FillPath(painter.GetBrush(Style.BackColor), path);
         }
