@@ -15,12 +15,14 @@ using DevExpress.Drawing;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [ToolboxItem(true)]
-    [ToolboxBitmap("DevExpress.XtraReports.CustomControls.SwissQRBill.Resources.SwissQRBillToolboxImage.bmp,DevExpress.XtraReports.CustomControls.SwissQRBill")]
     [ToolboxSvgImage("DevExpress.XtraReports.CustomControls.SwissQRBill.Resources.SwissQRBillToolboxSvgImage.svg,DevExpress.XtraReports.CustomControls.SwissQRBill")]
     [XRDesigner("DevExpress.XtraReports.CustomControls.Design.SwissQRBill.XRSwissQRBillDesigner, DevExpress.XtraReports.CustomControls.Design")]
     [Designer("DevExpress.XtraReports.CustomControls.Design.SwissQRBill._XRSwissQRBillDesigner, DevExpress.XtraReports.CustomControls.Design")]
     [XRToolboxSubcategory(0, 7)]
     [DefaultBindableProperty(nameof(StringData))]
+#if NET452
+    [ToolboxBitmap("DevExpress.XtraReports.CustomControls.SwissQRBill.Resources.SwissQRBillToolboxImage.bmp,DevExpress.XtraReports.CustomControls.SwissQRBill")]
+#endif
     public partial class XRSwissQRBill : XRControl {
         QRBillDataItem qrBillDataItem = new QRBillDataItem();
 

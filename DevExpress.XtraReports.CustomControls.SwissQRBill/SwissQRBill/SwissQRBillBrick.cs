@@ -8,8 +8,7 @@ using System.Text;
 using System.Linq;
 using System;
 using DevExpress.Utils.Serializing;
-using DevExpress.XtraReports.CustomControls.SwissQRBill.Properties;
-using System.Diagnostics;
+using DevExpress.Drawing;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [BrickExporter(typeof(SwissQRBillBrickExporter))]
@@ -23,32 +22,30 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             };
             return panelBrick;
         }
-        static TextBrick CreateTextBrick(string text, Font font, RectangleF bounds) {
+        static TextBrick CreateTextBrick(string text, DXFont font, RectangleF bounds) {
             return new TextBrick(CreateBrickStyle(font)) {
                 Rect = bounds,
                 Text = text,
             };
         }
-        static TextBrick CreateBestSizeTextBrick(string text, Font font, float maxWidth) {
+        static TextBrick CreateBestSizeTextBrick(string text, DXFont font, float maxWidth) {
             var style = CreateBrickStyle(font);
             var bestBounds = BestSizeEstimator.GetBoundsToFitText(text, style, maxWidth, GraphicsDpi.Document);
 
             return new TextBrick() { Text = text, Style = style, Rect = bestBounds };
         }
-        static BrickStyle CreateBrickStyle(Font font) {
+        static BrickStyle CreateBrickStyle(DXFont font) {
             return new XRControlStyle() {
                 Font = font,
                 Padding = new PaddingInfo(1, 1, 0, 0, 96),
                 StringFormat = BrickStringFormat.Create(TextAlignment.TopLeft, true, StringTrimming.EllipsisCharacter, false)
             };
         }
-        static float GetFontHeight(Font font) {
-            var metrics = new DevExpress.XtraPrinting.Native.FontMetrics(font, GraphicsUnit.Document);
-            var height = metrics.CalculateHeight(1);
-            return height;
+        static float GetFontHeight(DXFont font) {
+            return font.Height;
         }
-        static Font CreateFont(string fontFamily, int fontSize, FontStyle fontStyle) {
-            return new Font(fontFamily, fontSize, fontStyle);
+        static DXFont CreateFont(string familyName, int fontSize, DXFontStyle fontStyle) {
+            return new DXFont(familyName, fontSize, fontStyle);
         }
 
         internal QRBillDataItem BillDataItem { get; set; }
@@ -85,7 +82,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         TextBrick CreateTitleTextBrick(RectangleF bounds, int fontSize, SectionId localizationKey) {
             string text = LocalizationData.Instance[Language, localizationKey];
-            Font font = new Font(FontFamily, fontSize, Constants.HeaderFontStyle);
+            DXFont font = new DXFont(FontFamily, fontSize, Constants.HeaderFontStyle);
             return new TextBrick(CreateBrickStyle(font)) {
                 Rect = MmToDocConverter.Convert(bounds),
                 Text = text,
@@ -134,19 +131,13 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return string.Join(Environment.NewLine,
                 BillDataItem.AdditionalInformation, BillDataItem.StructuredInformation);
         }
-
-        void TrySetIncludeQuietZone(QRCodeGenerator generator) {
-            var includeQuietZone = generator.GetType().GetProperties().FirstOrDefault(a => a.Name == "IncludeQuietZone");
-            includeQuietZone?.SetValue(generator, false);
-        }
-
         VisualBrick CreatePaymentSwissQRCode() {
             var panelBrick = CreatePanelBrick(Constants.QRCodeBounds);
             var generator = new QRCodeGenerator() {
                 Version = QRCodeVersion.Version10,
                 CompactionMode = QRCodeCompactionMode.Byte,
+                IncludeQuietZone = false,
             };
-            TrySetIncludeQuietZone(generator); //This property is available in version 20.1.5 or later
             var barCodeBrick = new BarCodeBrick() {
                 Size = panelBrick.Size,
                 Sides = BorderSide.None,
@@ -161,7 +152,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 BackColor = Color.Transparent,
                 SizeMode = ImageSizeMode.Normal,
                 ImageAlignment = ImageAlignment.MiddleCenter,
-                ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(Resources.SwissLogo, true),
+                ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource(Images.SwissLogo, true),
                 UseImageResolution = true,
             };
             panelBrick.Bricks.Add(barCodeBrick);
@@ -180,8 +171,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
                 return null;
             PanelBrick panelBrick = CreatePanelBrick(Constants.ReceiptPartFurtherInformationBounds);
 
-            Font headerFont = CreateFont(FontFamily, Constants.PaymentFurtherInformationFontSize, Constants.HeaderFontStyle);
-            Font instructionFont = CreateFont(FontFamily, Constants.PaymentFurtherInformationFontSize, Constants.ContentFontStyle);
+            DXFont headerFont = CreateFont(FontFamily, Constants.PaymentFurtherInformationFontSize, Constants.HeaderFontStyle);
+            DXFont instructionFont = CreateFont(FontFamily, Constants.PaymentFurtherInformationFontSize, Constants.ContentFontStyle);
 
             AddAlternativeProceduresSectionPart(panelBrick, procedures.Name1, procedures.Instruction1, headerFont, instructionFont, 0);
 
@@ -196,7 +187,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
             return panelBrick;
         }
-        void AddAlternativeProceduresSectionPart(PanelBrick container, string name, string instruction, Font headerFont, Font instructionFont, float y) {
+        void AddAlternativeProceduresSectionPart(PanelBrick container, string name, string instruction, DXFont headerFont, DXFont instructionFont, float y) {
             VisualBrick nameHeaderBrick = CreateBestSizeTextBrick($"{name}:", headerFont, container.Size.Width);
             VisualBrick instructionBrick = CreateBestSizeTextBrick($"{instruction}", instructionFont, container.Size.Width);
             nameHeaderBrick.Location = new PointF(0, y);
@@ -244,7 +235,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         }
         VisualBrick CreateReceiptAcceptancePoint() {
             string text = LocalizationData.Instance[Language, SectionId.AcceptancePoint];
-            Font font = CreateFont(FontFamily, Constants.ReceiptAcceptancePointFontSize, Constants.HeaderFontStyle);
+            DXFont font = CreateFont(FontFamily, Constants.ReceiptAcceptancePointFontSize, Constants.HeaderFontStyle);
 
             TextBrick acceptanceStringBrick = CreateTextBrick(text, font, MmToDocConverter.Convert(Constants.PaymentAcceptancePointBounds));
             acceptanceStringBrick.HorzAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -254,8 +245,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         VisualBrick CreateAmountSection(RectangleF bounds, int headerFontSize, int contentFontSize, float mmCurrencyWidth, SizeF cornerSize, bool applyOffsetOnCorner) {
             PanelBrick panelBrick = CreatePanelBrick(bounds);
 
-            Font headerFont = new Font(FontFamily, headerFontSize, Constants.HeaderFontStyle);
-            Font contentFont = new Font(FontFamily, contentFontSize, Constants.ContentFontStyle);
+            DXFont headerFont = new DXFont(FontFamily, headerFontSize, Constants.HeaderFontStyle);
+            DXFont contentFont = new DXFont(FontFamily, contentFontSize, Constants.ContentFontStyle);
 
             float currencyWidth = MmToDocConverter.Convert(mmCurrencyWidth);
             float headerHeight = GetFontHeight(headerFont) + GraphicsUnitConverter.Convert(3, GraphicsDpi.Point, GraphicsDpi.Document);
@@ -265,7 +256,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
             return panelBrick;
         }
-        void AddAmountSectionHeaders(PanelBrick container, Font headerFont, float currencyWidth, float headerHeight) {
+        void AddAmountSectionHeaders(PanelBrick container, DXFont headerFont, float currencyWidth, float headerHeight) {
             string currencyHeaderText = LocalizationData.Instance[Language, SectionId.Currency];
             VisualBrick currencyHeaderBrick = CreateTextBrick(currencyHeaderText, headerFont, new RectangleF(0, 0, currencyWidth, headerHeight));
 
@@ -276,7 +267,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             container.Bricks.Add(currencyHeaderBrick);
             container.Bricks.Add(amountHeaderBrick);
         }
-        void AddAmountSectionContent(PanelBrick container, Font contentFont, float currencyWidth, SizeF cornerSize, float verticalOffset, bool applyOffsetOnCorner) {
+        void AddAmountSectionContent(PanelBrick container, DXFont contentFont, float currencyWidth, SizeF cornerSize, float verticalOffset, bool applyOffsetOnCorner) {
             float contentFontHeight = GetFontHeight(contentFont);
 
             string currencyContentText = BillDataItem.Currency.ToString();
@@ -302,17 +293,17 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         void AddRequiredInformationSection(PanelBrick container, SectionId headerLocalizationKey, string contextText, int headerFontSize, int contentFontSize, float startOffset) {
             string headerText = LocalizationData.Instance[Language, headerLocalizationKey];
 
-            var headerBrick = CreateBestSizeTextBrick(headerText, new Font(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
-            var contentBrick = CreateBestSizeTextBrick(contextText, new Font(FontFamily, contentFontSize, Constants.ContentFontStyle), container.Rect.Width);
+            var headerBrick = CreateBestSizeTextBrick(headerText, new DXFont(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
+            var contentBrick = CreateBestSizeTextBrick(contextText, new DXFont(FontFamily, contentFontSize, Constants.ContentFontStyle), container.Rect.Width);
 
             AddSectionPartToContainer(container, headerBrick, contentBrick, startOffset);
         }
         void AddOptionalInformationSection(PanelBrick container, SectionId headerLocalizationKey, string contentText, int headerFontSize, int contentFontSize, float startOffset, SizeF cornerSize) {
             string headerText = LocalizationData.Instance[Language, headerLocalizationKey];
-            VisualBrick headerBrick = CreateBestSizeTextBrick(headerText, new Font(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
+            VisualBrick headerBrick = CreateBestSizeTextBrick(headerText, new DXFont(FontFamily, headerFontSize, Constants.HeaderFontStyle), container.Rect.Width);
             VisualBrick contentBrick = string.IsNullOrWhiteSpace(contentText)
                 ? new CornerRectangleBrick() { Rect = new RectangleF(PointF.Empty, cornerSize) }
-                    : (VisualBrick)CreateBestSizeTextBrick(contentText, new Font(FontFamily, contentFontSize, Constants.ContentFontStyle), container.Rect.Width);
+                    : (VisualBrick)CreateBestSizeTextBrick(contentText, new DXFont(FontFamily, contentFontSize, Constants.ContentFontStyle), container.Rect.Width);
 
             AddSectionPartToContainer(container, headerBrick, contentBrick, startOffset);
         }

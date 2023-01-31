@@ -1,4 +1,5 @@
 using System.Drawing;
+using DevExpress.Drawing;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     public static class Constants {
@@ -14,8 +15,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         public static int PaymentAmountFontSize = 10;
         public static int PaymentFurtherInformationFontSize = 7;
 
-        public static FontStyle HeaderFontStyle = FontStyle.Bold;
-        public static FontStyle ContentFontStyle = FontStyle.Regular;
+        public static DXFontStyle HeaderFontStyle = DXFontStyle.Bold;
+        public static DXFontStyle ContentFontStyle = DXFontStyle.Regular;
 
         public static float CornerMarkThickness = 0.75f;
         public static float CornerMarkSize = 3f;

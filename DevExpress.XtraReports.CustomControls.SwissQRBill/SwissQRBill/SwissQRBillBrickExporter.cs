@@ -1,8 +1,6 @@
 using DevExpress.Drawing;
-using DevExpress.Drawing.GdiPlus.Internal;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraPrinting.BrickExporters;
-using DevExpress.XtraReports.CustomControls.SwissQRBill.Properties;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
@@ -78,11 +76,11 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         }
         void DrawVerticalScissors(IGraphics gr, RectangleF rect) {
             PointF offset = BoundsCalculator.GetVerticalScissorsOffset(SwissQRBillBrick);
-            gr.DrawImage(GdiPlusImage.Wrap(Resources.VerticalScissors), new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
+            gr.DrawImage(Images.VerticalScissors, new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
         }
         void DrawHorizontalScissors(IGraphics gr, RectangleF rect) {
             PointF offset = BoundsCalculator.GetHorizontalScissorsOffset(SwissQRBillBrick);
-            gr.DrawImage(GdiPlusImage.Wrap(Resources.HorizontalScissors), new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
+            gr.DrawImage(Images.HorizontalScissors, new RectangleF(OffsetPoint(rect.Location, offset), new SizeF(50, 50)));
         }
         void DrawVerticallLine(IGraphics gr, RectangleF rect, SeparatorKind separationLineDrawMode) {
             DXPen pen = BrickPaint.GetPen(Color.Black, GraphicsUnitConverter.DipToDoc(1f));
