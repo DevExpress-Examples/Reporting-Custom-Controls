@@ -12,7 +12,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return DXImage.FromStream(stream);
         }
         static string GetFullName(string name) {
-            return string.Concat(typeof(Images).Namespace, ".", name);
+            return string.Concat(typeof(Images).Namespace, ".Resources.", name);
         }
     }
 }

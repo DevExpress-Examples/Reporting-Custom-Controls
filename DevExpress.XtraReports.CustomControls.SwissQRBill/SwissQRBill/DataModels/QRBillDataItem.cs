@@ -5,16 +5,16 @@ using System.Text.RegularExpressions;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     public class QRBillDataItem {
-        public static Version Version = Version.V2_0;
+        public static Version Version = Version.V2_2;
         private double? amount = null;
 
         public Currency Currency { get; set; } = Currency.CHF;
         public double? Amount { get { return amount; } set { amount = CoerceAmount(value); } }
-        public AccountNumber CreditorAccountNumber { get; set; } = new AccountNumber();
+        public CreditorAccountNumber CreditorAccountNumber { get; set; } = new CreditorAccountNumber();
 
         public Address CreditorInformation { get; set; } = new Address();
 
-        public AccountNumber Reference { get; set; } = new AccountNumber();
+        public PaymentReferenceAccountNumber Reference { get; set; } = new PaymentReferenceAccountNumber();
 
         public Address DebtorInformation { get; set; } = new Address();
 
@@ -44,11 +44,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public ReferenceType ReferenceType {
             get {
-                if(CreditorAccountNumber == null)
-                    return ReferenceType.NON;
-                if(CreditorAccountNumber.NumberFormat == AccountNumberFormat.IBAN && Reference == null)
-                    return ReferenceType.NON;
-                if(Reference == null)
+                if(CreditorAccountNumber == null || Reference == null || Reference.NumberFormat == AccountNumberFormat.None)
                     return ReferenceType.NON;
                 if(CreditorAccountNumber.NumberFormat == AccountNumberFormat.QR_IBAN && Reference.NumberFormat == AccountNumberFormat.QRReference)
                     return ReferenceType.QRR;
@@ -107,8 +103,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             stringBuilder.AppendLine(ReferenceType.ToString());
             stringBuilder.AppendLine(Reference == null ? string.Empty : Reference.ConvertToQRCodeDataString());
             stringBuilder.AppendLine(AdditionalInformation);
-            stringBuilder.AppendLine("EPD");
-            stringBuilder.Append(StructuredInformation);
+            stringBuilder.Append("EPD");
+            AddIfNotEmpty(stringBuilder, StructuredInformation);
             AddIfNotEmpty(stringBuilder, AlternativeProcedures.ConvertToQRCodeDataString());
             return stringBuilder.ToString();
         }
@@ -124,7 +120,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             if(amount == null) {
                 return amount;
             } else {
-                return amount.Value == 0d ? 0.1d : amount;
+                return amount.Value <= 0.01d ? 0.01d : amount;
             }
         }
     }

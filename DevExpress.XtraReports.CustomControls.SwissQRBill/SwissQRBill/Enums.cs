@@ -54,6 +54,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         NON,
     }
     public enum AccountNumberFormat {
+        None,
         IBAN,
         QR_IBAN,
         QRReference,

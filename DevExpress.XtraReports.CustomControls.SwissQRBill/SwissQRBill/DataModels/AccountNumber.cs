@@ -1,23 +1,7 @@
-using System;
 using System.Linq;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
-    public class AccountNumber : QRCodeDataElement {
-        static bool IsCreditorReference(string str) {
-            return str.Length == 16 && str.StartsWith("RF");
-        }
-        static bool IsIban(string str) {
-            return str.Length == 21;
-        }
-        static bool IsQR_IBAN(string str) {
-            return str.Length == 21 && str[4] == '3';
-        }
-        static bool IsQR_Reference(string str) {
-            return str.Length == 27;
-        }
-        static bool IsValid(string str) {
-            return IsQR_IBAN(str) || IsQR_Reference(str) || IsIban(str) || IsCreditorReference(str);
-        }
+    public abstract class AccountNumber : QRCodeDataElement {
 
         static string SplitFromEnd(string str, int numbers) {
             var arr = str.ToList();
@@ -37,25 +21,20 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return new string(arr.ToArray()).Trim();
         }
 
-        private const string DefaultNumber = "AA45XXXXXXXXXXXXXXXXA";
         string number;
 
-        public AccountNumberFormat NumberFormat { get; private set; }
+        public AccountNumberFormat NumberFormat { get; protected set; }
 
         public string Number {
             get { return number; }
             set {
-                if(string.IsNullOrEmpty(value) || !IsValid(value))
+                if(!IsValid(value))
                     ValidationError.ThrowValidationException(ValidationCode.InvalidAccountNumber);
-
                 number = value;
                 IdentifyFormat();
             }
         }
 
-        public AccountNumber()
-            : this(DefaultNumber) {
-        }
         public AccountNumber(string ibanStr) {
             Number = ibanStr;
         }
@@ -86,19 +65,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return Number;
         }
 
-        void IdentifyFormat() {
-            if(IsQR_Reference(Number))
-                NumberFormat = AccountNumberFormat.QRReference;
-            if(IsIban(Number))
-                NumberFormat = AccountNumberFormat.IBAN;
-            if(IsCreditorReference(Number))
-                NumberFormat = AccountNumberFormat.CreditorReference;
-            if(IsQR_IBAN(Number))
-                NumberFormat = AccountNumberFormat.QR_IBAN;
-        }
-
-        public override void Reset() {
-            Number = DefaultNumber;
-        }
+        protected abstract bool IsValid(string str);
+        protected abstract void IdentifyFormat();
     }
 }

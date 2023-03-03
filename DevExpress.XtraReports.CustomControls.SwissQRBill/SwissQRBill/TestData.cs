@@ -25,10 +25,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_BillWithoutAdditionalInfo() {
             return new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
                 DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = 55, PostalCode = 8184, Street = "Bachliwis", Town = "Bachenbulach" },
             };
@@ -36,10 +36,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_BillWithAdditionalInfo() {
             return new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
                 DebtorInformation = new Address() { CountryCode = "CH", Name = "Simon Glarner", BuildingNumber = 55, PostalCode = 8184, Street = "Bachliwis", Town = "Bachenbulach" },
@@ -48,10 +48,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_WithBillInfo() {
             return new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
@@ -61,10 +61,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_WithEmptySenderInfo() {
             return new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
@@ -73,16 +73,16 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_WithoutAdditionalInfo() {
             return new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
         }
 
         public static QRBillDataItem Create_Test_EmptyItem() {
             return new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Currency = Currency.EUR,
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
             };
@@ -90,10 +90,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_WithTwoAlternativeProcedures() {
             var result = new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
@@ -104,10 +104,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_WithOneAlternativeProcedures() {
             var result = new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
+                CreditorAccountNumber = new CreditorAccountNumber("CHXXXXXXXXXXXXXXXXXXA"),
                 Amount = 287.30d,
                 Currency = Currency.EUR,
-                Reference = new AccountNumber("RFXXXXXXXXXXXXXX"),
+                Reference = new PaymentReferenceAccountNumber("RFXXXXXXXXXXXXXX"),
                 AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987",
                 StructuredInformation = "//bill information",
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Schreinerei Habegger & Sohne", BuildingNumber = 138, PostalCode = 8045, Street = "Uetlibergstrasse", Town = "Zuric" },
@@ -118,10 +118,10 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_FromRealData() {
             var result = new QRBillDataItem() {
-                CreditorAccountNumber = new AccountNumber("CH4444995599000899901"),
+                CreditorAccountNumber = new CreditorAccountNumber("CH4444995599000899901"),
                 Amount = 8690,
                 Currency = Currency.CHF,
-                Reference = new AccountNumber("210000000003139471430009017"),
+                Reference = new PaymentReferenceAccountNumber("210000000003139471430009017"),
                 AdditionalInformation = "Auftrag vom 25.10.2019##S1/01/20170309/11/10201409/20/14000/22/36958/30/CH10646546/40/1020/41/3010",
                 DebtorInformation = new Address() { CountryCode = "CH", Name = "Pia-Maria Rutschmann-Schnyder", BuildingNumber = 28, PostalCode = 9400, Street = "Grosse Marktgasse", Town = "Rorschach" },
                 CreditorInformation = new Address() { CountryCode = "CH", Name = "Henri Schmid Service Switzerland AG", BuildingNumber = 258, PostalCode = 2501, Street = "Museumstrasse", Town = "Biel" },

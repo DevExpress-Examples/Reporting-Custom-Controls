@@ -365,13 +365,13 @@ namespace CustomControlExample {
             // 
             // xrSwissQRBill1
             // 
-            this.xrSwissQRBill1.CreditorIBAN = "AA45XXXXXXXXXXXXXXXXA";
+            this.xrSwissQRBill1.CreditorIBAN = "CHXXXXXXXXXXXXXXXXXXX";
             this.xrSwissQRBill1.Dpi = 254F;
             //this.xrSwissQRBill1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             //new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StringData", "[BillItemStringInfo]")});
             this.xrSwissQRBill1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrSwissQRBill1.Name = "xrSwissQRBill1";
-            this.xrSwissQRBill1.Reference = "AA45XXXXXXXXXXXXXXXXA";
+            this.xrSwissQRBill1.Reference = "RFXXXXXXXXXXXXXX";
             this.xrSwissQRBill1.SizeF = new System.Drawing.SizeF(2100F, 1100F);
             // 
             // objectDataSource1

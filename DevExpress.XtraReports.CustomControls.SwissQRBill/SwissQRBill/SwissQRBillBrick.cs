@@ -9,6 +9,8 @@ using System.Linq;
 using System;
 using DevExpress.Utils.Serializing;
 using DevExpress.Drawing;
+using System.Globalization;
+using DevExpress.XtraPrinting.Native;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [BrickExporter(typeof(SwissQRBillBrickExporter))]
@@ -42,11 +44,13 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             };
         }
         static float GetFontHeight(DXFont font) {
-            return font.Height;
+            FontMetrics fontMetrics = new FontMetrics(font, DXGraphicsUnit.Document);
+            return fontMetrics.Ascent + fontMetrics.Descent;
         }
         static DXFont CreateFont(string familyName, int fontSize, DXFontStyle fontStyle) {
             return new DXFont(familyName, fontSize, fontStyle);
         }
+        static CultureInfo amountCultureFormat;
 
         internal QRBillDataItem BillDataItem { get; set; }
 
@@ -61,6 +65,11 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
 
         public override string BrickType => nameof(SwissQRBillBrick);
 
+        static SwissQRBillBrick() {
+            amountCultureFormat = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+            amountCultureFormat.NumberFormat.NumberGroupSeparator = " ";
+            amountCultureFormat.NumberFormat.NumberDecimalSeparator = ".";
+        }
         public SwissQRBillBrick() : this(null) {
 
         }
@@ -136,6 +145,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             var generator = new QRCodeGenerator() {
                 Version = QRCodeVersion.Version10,
                 CompactionMode = QRCodeCompactionMode.Byte,
+                ErrorCorrectionLevel = QRCodeErrorCorrectionLevel.M,
                 IncludeQuietZone = false,
             };
             var barCodeBrick = new BarCodeBrick() {
@@ -287,7 +297,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             }
         }
         string GetAmountString() {
-            return BillDataItem.Amount == null ? "" : BillDataItem.Amount.Value.ToString("#0.00");
+            return BillDataItem.Amount == null ? "" : BillDataItem.Amount.Value.ToString("N02", amountCultureFormat);
         }
 
         void AddRequiredInformationSection(PanelBrick container, SectionId headerLocalizationKey, string contextText, int headerFontSize, int contentFontSize, float startOffset) {
