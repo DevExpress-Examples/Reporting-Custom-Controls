@@ -43,7 +43,7 @@ The project is in the [Examples/CustomControlExample.AspNetCore](./Examples/Cust
 ### XRSwissQRBill
 
 - [XRSwissQRBill.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs)
-- [SwissQRBillCustomControl.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBillCustomControl.cs)
+- [SwissQRBillCustomControl.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill\SwissQRBillCustomControl.cs)
 - [SwissQRBillBrick.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/SwissQRBillBrick.cs)
 - [CustomControlToolBoxRegistrator.cs](/DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
 - [XRSwissQRBillDesignerActionList.cs](/DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs)

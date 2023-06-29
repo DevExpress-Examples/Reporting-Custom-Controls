@@ -395,7 +395,7 @@ namespace CustomControlExample {
             this.Margins = new System.Drawing.Printing.Margins(0, 0, 132, 0);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
-            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
+            this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
             this.ReportUnit = DevExpress.XtraReports.UI.ReportUnit.TenthsOfAMillimeter;
             this.ShowPrintMarginsWarning = false;
             this.SnapGridSize = 25F;

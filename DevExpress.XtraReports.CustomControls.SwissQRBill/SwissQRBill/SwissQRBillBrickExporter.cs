@@ -67,7 +67,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
         void DrawSeparateLineText(IGraphics gr, RectangleF rect) {
             var size = BoundsCalculator.GetSeparateLineTextSize(SwissQRBillBrick);
             var text = LocalizationData.Instance[SwissQRBillBrick.BillOptions.Language, SectionId.SeparateBeforePayingIn];
-            BrickStringFormat bsf = new BrickStringFormat(StringAlignment.Center, StringAlignment.Center);
+            BrickStringFormat bsf = new BrickStringFormat(DXStringAlignment.Center, DXStringAlignment.Center);
             gr.DrawString(text, GetSeparatorLineTextFont(), gr.GetBrush(Color.Black), new RectangleF(rect.Location, size), bsf.Value);
         }
         DXFont GetSeparatorLineTextFont() {

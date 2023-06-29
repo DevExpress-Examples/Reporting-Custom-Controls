@@ -24,6 +24,8 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [ToolboxBitmap("DevExpress.XtraReports.CustomControls.SwissQRBill.Resources.SwissQRBillToolboxImage.bmp,DevExpress.XtraReports.CustomControls.SwissQRBill")]
 #endif
     public partial class XRSwissQRBill : XRControl {
+        public static readonly SizeF InitSizeF = new SizeF(845, 458);
+
         QRBillDataItem qrBillDataItem = new QRBillDataItem();
 
         [Browsable(false)]

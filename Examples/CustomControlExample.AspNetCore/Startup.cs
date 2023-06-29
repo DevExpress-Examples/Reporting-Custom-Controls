@@ -1,6 +1,7 @@
 using CustomControlExample.AspNetCore.Services;
 using DevExpress.AspNetCore;
 using DevExpress.AspNetCore.Reporting;
+using DevExpress.Utils;
 using DevExpress.XtraReports.CustomControls;
 using DevExpress.XtraReports.Web.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -19,6 +20,10 @@ namespace CustomControlExample.AspNetCore {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
+
+            DeserializationSettings.RegisterTrustedClass(typeof(Report));
+            DeserializationSettings.RegisterTrustedClass(typeof(DataSource));
+
             services.AddDevExpressControls();
             services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>();
             services

@@ -40,7 +40,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             return new XRControlStyle() {
                 Font = font,
                 Padding = new PaddingInfo(1, 1, 0, 0, 96),
-                StringFormat = BrickStringFormat.Create(TextAlignment.TopLeft, true, StringTrimming.EllipsisCharacter, false)
+                StringFormat = BrickStringFormat.Create(TextAlignment.TopLeft, true, DXStringTrimming.EllipsisCharacter, false)
             };
         }
         static float GetFontHeight(DXFont font) {
