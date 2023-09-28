@@ -22,4 +22,3 @@ namespace DevExpress.XtraReports.CustomControls {
         }
     }
 }
-
