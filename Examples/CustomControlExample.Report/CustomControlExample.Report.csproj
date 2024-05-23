@@ -3,7 +3,7 @@
     <TargetFrameworks>net6.0;net4.5.2</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Reporting.Core" Version="23.1.*-*" />
+    <PackageReference Include="DevExpress.Reporting.Core" Version="23.1.10" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.Design\DevExpress.XtraReports.CustomControls.Design.csproj" />

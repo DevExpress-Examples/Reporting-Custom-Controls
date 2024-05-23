@@ -11,7 +11,7 @@
     <EmbeddedResource Include="Resources\XRPanel.svg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Reporting.Core" Version="23.1.*-*" />
+    <PackageReference Include="DevExpress.Reporting.Core" Version="23.1.10" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

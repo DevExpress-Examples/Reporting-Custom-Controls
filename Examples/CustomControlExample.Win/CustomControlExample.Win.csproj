@@ -5,7 +5,7 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Win.Reporting" Version="23.1.*-*" />
+    <PackageReference Include="DevExpress.Win.Reporting" Version="23.1.10" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.Design\DevExpress.XtraReports.CustomControls.Design.csproj" />

@@ -3,7 +3,7 @@
     <TargetFrameworks>net6.0-windows;net4.5.2</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Win.Reporting" Version="23.1.*-*" />
+    <PackageReference Include="DevExpress.Win.Reporting" Version="23.1.10" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
