@@ -10,7 +10,7 @@ using System;
 using DevExpress.Utils.Serializing;
 using DevExpress.Drawing;
 using System.Globalization;
-using DevExpress.XtraPrinting.Native;
+using DevExpress.Drawing.TextFormatter;
 
 namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
     [BrickExporter(typeof(SwissQRBillBrickExporter))]
@@ -44,8 +44,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             };
         }
         static float GetFontHeight(DXFont font) {
-            FontMetrics fontMetrics = new FontMetrics(font, DXGraphicsUnit.Document);
-            return fontMetrics.Ascent + fontMetrics.Descent;
+            return TextFormatter.CalculateHeightOfLines(font, 1, DXGraphicsUnit.Document, null);
         }
         static DXFont CreateFont(string familyName, int fontSize, DXFontStyle fontStyle) {
             return new DXFont(familyName, fontSize, fontStyle);
