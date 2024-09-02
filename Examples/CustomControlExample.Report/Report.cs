@@ -104,7 +104,7 @@ namespace CustomControlExample {
             this.Title.BorderColor = System.Drawing.Color.Black;
             this.Title.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.Title.BorderWidth = 1F;
-            this.Title.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.Title.Font = new DevExpress.Drawing.DXFont("Arial", 14.25F);
             this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.Title.Name = "Title";
             // 
@@ -114,7 +114,7 @@ namespace CustomControlExample {
             this.DetailCaption2.BorderColor = System.Drawing.Color.White;
             this.DetailCaption2.Borders = DevExpress.XtraPrinting.BorderSide.Left;
             this.DetailCaption2.BorderWidth = 2F;
-            this.DetailCaption2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            this.DetailCaption2.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Bold);
             this.DetailCaption2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.DetailCaption2.Name = "DetailCaption2";
             this.DetailCaption2.Padding = new DevExpress.XtraPrinting.PaddingInfo(15, 15, 0, 0, 254F);
@@ -125,7 +125,7 @@ namespace CustomControlExample {
             this.DetailData2.BorderColor = System.Drawing.Color.Transparent;
             this.DetailData2.Borders = DevExpress.XtraPrinting.BorderSide.Left;
             this.DetailData2.BorderWidth = 2F;
-            this.DetailData2.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.DetailData2.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F);
             this.DetailData2.ForeColor = System.Drawing.Color.Black;
             this.DetailData2.Name = "DetailData2";
             this.DetailData2.Padding = new DevExpress.XtraPrinting.PaddingInfo(15, 15, 0, 0, 254F);
@@ -137,7 +137,7 @@ namespace CustomControlExample {
             this.DetailData3_Odd.BorderColor = System.Drawing.Color.Transparent;
             this.DetailData3_Odd.Borders = DevExpress.XtraPrinting.BorderSide.None;
             this.DetailData3_Odd.BorderWidth = 1F;
-            this.DetailData3_Odd.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.DetailData3_Odd.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F);
             this.DetailData3_Odd.ForeColor = System.Drawing.Color.Black;
             this.DetailData3_Odd.Name = "DetailData3_Odd";
             this.DetailData3_Odd.Padding = new DevExpress.XtraPrinting.PaddingInfo(15, 15, 0, 0, 254F);
@@ -145,7 +145,7 @@ namespace CustomControlExample {
             // 
             // PageInfo
             // 
-            this.PageInfo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
+            this.PageInfo.Font = new DevExpress.Drawing.DXFont("Arial", 8.25F, DevExpress.Drawing.DXFontStyle.Bold);
             this.PageInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(70)))), ((int)(((byte)(80)))));
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
@@ -199,7 +199,7 @@ namespace CustomControlExample {
             this.xrLabel2.Dpi = 254F;
             this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
             new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[OrderNumber]")});
-            this.xrLabel2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.xrLabel2.Font = new DevExpress.Drawing.DXFont("Arial", 15F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(485F, 0F);
             this.xrLabel2.Multiline = true;
             this.xrLabel2.Name = "xrLabel2";
@@ -211,7 +211,7 @@ namespace CustomControlExample {
             // xrLabel1
             // 
             this.xrLabel1.Dpi = 254F;
-            this.xrLabel1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.xrLabel1.Font = new DevExpress.Drawing.DXFont("Arial", 15F, DevExpress.Drawing.DXFontStyle.Bold);
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(50F, 0F);
             this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
@@ -391,8 +391,8 @@ namespace CustomControlExample {
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
             this.Dpi = 254F;
-            this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(0, 0, 132, 0);
+            this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
+            this.Margins = new DevExpress.Drawing.DXMargins(0, 0, 132, 0);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
