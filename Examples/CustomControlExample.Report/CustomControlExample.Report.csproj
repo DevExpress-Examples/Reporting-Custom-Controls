@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net4.5.2</TargetFrameworks>
+    <TargetFrameworks>net8.0;net4.7.2</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.1-alpha-24207" />
