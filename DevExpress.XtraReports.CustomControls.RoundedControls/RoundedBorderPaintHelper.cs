@@ -24,9 +24,15 @@ namespace DevExpress.XtraReports.CustomControls {
             gr.DrawPath(painter.GetPen(Style.BorderColor, borderWidth), path);
         }
 
-        static DXGraphicsPath BuildPath(IGraphics gr, RectangleF rect, int radius) {
+        static DXGraphicsPath BuildPath(IGraphics gr, RectangleF rect, int radius)
+        {
             var path = new DXGraphicsPath();
             radius = GraphicsUnitConverter.Convert(radius, GraphicsDpi.DeviceIndependentPixel, GraphicsDpi.UnitToDpi((GraphicsUnit)gr.PageUnit));
+
+            // Ensure the radius does not exceed half the height of the rectangle to prevent arc overlap
+            radius = Math.Min(radius, (int)Math.Floor(rect.Height / 2));
+            radius = Math.Min(radius, (int)Math.Floor(rect.Width / 2)); 
+
             path.AddLine(rect.Left + radius, rect.Top, rect.Right - radius, rect.Top);
             path.AddArc(rect.Right - 2 * radius, rect.Top, 2 * radius, 2 * radius, 270, 90);
 
@@ -38,6 +44,7 @@ namespace DevExpress.XtraReports.CustomControls {
 
             path.AddLine(rect.Left, rect.Bottom - radius, rect.Left, rect.Top + radius);
             path.AddArc(rect.Left, rect.Top, 2 * radius, 2 * radius, 180, 90);
+
             path.CloseFigure();
             return path;
         }
