@@ -12,12 +12,9 @@
     <EmbeddedResource Include="Resources\XRPanel.svg" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.1-alpha-24207" />
+    <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.2-beta" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
   </ItemGroup>
 </Project>

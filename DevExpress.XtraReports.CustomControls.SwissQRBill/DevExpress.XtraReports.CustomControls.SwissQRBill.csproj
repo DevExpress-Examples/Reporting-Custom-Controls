@@ -18,10 +18,8 @@
     <EmbeddedResource Include="Resources\VerticalScissors.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.1-alpha-24207" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="System.Resources.Extensions" Version="6.0.0" />
-    <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
+    <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.2-beta" />
+	  <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
+	  <PackageReference Include="System.Security.Permissions" Version="4.7.0" />
   </ItemGroup>
 </Project>

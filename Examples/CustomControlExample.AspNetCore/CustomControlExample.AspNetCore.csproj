@@ -30,8 +30,8 @@
     <Exec Command="npm install" />
   </Target>
   <ItemGroup>
-    <PackageReference Include="System.Data.SQLite" Version="1.0.109.2" />
-    <PackageReference Include="DevExpress.AspNetCore.Reporting" Version="24.2.1-alpha-24207" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
+    <PackageReference Include="DevExpress.AspNetCore.Reporting" Version="24.2.2-beta" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.0.415" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.0.96" />
