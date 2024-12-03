@@ -44,7 +44,7 @@ namespace DevExpress.XtraReports.CustomControls.SwissQRBill {
             };
         }
         static float GetFontHeight(DXFont font) {
-            return TextFormatter.CalculateHeightOfLines(font, 1, DXGraphicsUnit.Document, null);
+            return TextFormatter.CalculateHeightOfLines(font, 1, DXGraphicsUnit.Document);
         }
         static DXFont CreateFont(string familyName, int fontSize, DXFontStyle fontStyle) {
             return new DXFont(familyName, fontSize, fontStyle);
