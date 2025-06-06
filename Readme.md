@@ -24,23 +24,23 @@ To create a new report control, do the following:
 
 ## XRSwissQRBill
 
-Refer to the following document for information on **XRSwissQRBill** implementation: [How to Create a Custom DevExpress Report Control - Swiss QR Bill Implementation](./DevExpress.XtraReports.CustomControls.SwissQRBill/Readme.md).
+Refer to the following document for information on **XRSwissQRBill** implementation: [How to Create a Custom DevExpress Report Control - Swiss QR Bill Implementation](./CustomControls.SwissQRBill/Readme.md).
 
 ## XRRoundLabel and XRRoundPanel
 
-Refer to the following document for information on **XRRoundLabel and XRRoundPanel** implementation: [How to Create Controls with Rounded Corners](./DevExpress.XtraReports.CustomControls.RoundedControls/Readme.md).
+Refer to the following document for information on **XRRoundLabel and XRRoundPanel** implementation: [How to Create Controls with Rounded Corners](./CustomControls.RoundedControls/Readme.md).
 
 ## Examples
 
 ### WinForms
 
-Run the sample project to invoke the WinForms End-User Report Designer with a toolbox that contains the [XRSwissQRBill](./DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs), [XRRoundLabel](./DevExpress.XtraReports.CustomControls.RoundedControls/Label/XRRoundLabel.cs) and [XRRoundPanel](./DevExpress.XtraReports.CustomControls.RoundedControls/Panel/XRRoundPanel.cs) controls.
+Run the sample project to invoke the WinForms End-User Report Designer with a toolbox that contains the [XRSwissQRBill](./CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs), [XRRoundLabel](./CustomControls.RoundedControls/Label/XRRoundLabel.cs) and [XRRoundPanel](./CustomControls.RoundedControls/Panel/XRRoundPanel.cs) controls.
 
 The project is in the [Examples/CustomControlExample.Win](./Examples/CustomControlExample.Win/) folder. File to review: [Program.cs](./Examples/CustomControlExample.Win/Program.cs).
 
 ### ASP.NET Core
 
-Run the sample project to invoke the ASP.NET Core End-User Report Designer with a toolbox that contains the [XRRoundLabel](./DevExpress.XtraReports.CustomControls.RoundedControls/Label/XRRoundLabel.cs), and [XRRoundPanel](./DevExpress.XtraReports.CustomControls.RoundedControls/Panel/XRRoundPanel.cs) controls.
+Run the sample project to invoke the ASP.NET Core End-User Report Designer with a toolbox that contains the [XRRoundLabel](./CustomControls.RoundedControls/Label/XRRoundLabel.cs), and [XRRoundPanel](./CustomControls.RoundedControls/Panel/XRRoundPanel.cs) controls.
 
 The project is in the [Examples/CustomControlExample.AspNetCore](./Examples/CustomControlExample.AspNetCore/) folder. Files to review: [Startup.cs](./Examples/CustomControlExample.AspNetCore/Startup.cs) and [Designer.cshtml](./Examples/CustomControlExample.AspNetCore/Views/Home/Designer.cshtml).
 
@@ -48,24 +48,24 @@ The project is in the [Examples/CustomControlExample.AspNetCore](./Examples/Cust
 
 ### XRSwissQRBill
 
-- [XRSwissQRBill.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs)
-- [SwissQRBillCustomControl.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBillCustomControl.cs)
-- [SwissQRBillBrick.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/SwissQRBillBrick.cs)
-- [CustomControlToolBoxRegistrator.cs](/DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
-- [XRSwissQRBillDesignerActionList.cs](/DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs)
-- [TypeConverters.cs](/DevExpress.XtraReports.CustomControls.SwissQRBill/SwissQRBill/TypeConverters.cs)
+- [XRSwissQRBill.cs](/CustomControls.SwissQRBill/SwissQRBill/XRSwissQRBill.cs)
+- [SwissQRBillCustomControl.cs](/CustomControls.SwissQRBill/SwissQRBillCustomControl.cs)
+- [SwissQRBillBrick.cs](/CustomControls.SwissQRBill/SwissQRBill/SwissQRBillBrick.cs)
+- [CustomControlToolBoxRegistrator.cs](/CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+- [XRSwissQRBillDesignerActionList.cs](/CustomControls.Design/XRSwissQRBillDesignerActionList.cs)
+- [TypeConverters.cs](/CustomControls.SwissQRBill/SwissQRBill/TypeConverters.cs)
 
 ### XRRoundLabel and XRRoundPanel
 
-- [XRRoundLabel.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Label/XRRoundLabel.cs)
-- [RoundLabelBrick.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Label/RoundLabelBrick.cs)
-- [RoundLabelBrickExporter.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Label/RoundLabelBrickExporter.cs)
-- [XRRoundPanel.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Panel/XRRoundPanel.cs)
-- [RoundPanelBrick.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Panel/RoundPanelBrick.cs)
-- [RoundLabelBrickExporter.cs](/DevExpress.XtraReports.CustomControls.RoundedControls/Panel/RoundPanelBrickExporter.cs)
-- [RoundedBorderPaintHelper.cs](./DevExpress.XtraReports.CustomControls.RoundedControls/RoundedBorderPaintHelper.cs)
-- [RoundedCustomControl.cs](./DevExpress.XtraReports.CustomControls.RoundedControls/RoundedCustomControl.cs)
-- [CustomControlToolBoxRegistrator.cs](./DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+- [XRRoundLabel.cs](/CustomControls.RoundedControls/Label/XRRoundLabel.cs)
+- [RoundLabelBrick.cs](/CustomControls.RoundedControls/Label/RoundLabelBrick.cs)
+- [RoundLabelBrickExporter.cs](/CustomControls.RoundedControls/Label/RoundLabelBrickExporter.cs)
+- [XRRoundPanel.cs](/CustomControls.RoundedControls/Panel/XRRoundPanel.cs)
+- [RoundPanelBrick.cs](/CustomControls.RoundedControls/Panel/RoundPanelBrick.cs)
+- [RoundLabelBrickExporter.cs](/CustomControls.RoundedControls/Panel/RoundPanelBrickExporter.cs)
+- [RoundedBorderPaintHelper.cs](./CustomControls.RoundedControls/RoundedBorderPaintHelper.cs)
+- [RoundedCustomControl.cs](./CustomControls.RoundedControls/RoundedCustomControl.cs)
+- [CustomControlToolBoxRegistrator.cs](./CustomControls.Design/CustomControlToolBoxRegistrator.cs)
 
 ## Documentation
 
