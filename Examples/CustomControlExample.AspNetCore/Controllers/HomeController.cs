@@ -1,4 +1,4 @@
-using DevExpress.XtraReports.CustomControls.SwissQRBill;
+using CustomControls.SwissQRBill;
 using Microsoft.AspNetCore.Mvc;
 using DevExpress.XtraReports.Web.ReportDesigner.Services;
 using DevExpress.XtraReports.Web.ReportDesigner;

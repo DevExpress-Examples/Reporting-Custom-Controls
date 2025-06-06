@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DevExpress.XtraReports.CustomControls.SwissQRBill;
+using CustomControls.SwissQRBill;
 using DevExpress.XtraReports.UI;
 
 namespace CustomControlExample {
@@ -36,13 +36,13 @@ namespace CustomControlExample {
         private XRTableCell tableCell7;
         private XRTableCell tableCell8;
         private GroupFooterBand GroupFooter1;
-        private DevExpress.XtraReports.CustomControls.SwissQRBill.XRSwissQRBill xrSwissQRBill1;
+        private CustomControls.SwissQRBill.XRSwissQRBill xrSwissQRBill1;
 
         public Report() {
             InitializeComponent();
             //xrSwissQRBill1.CreditorIBAN = "CHXXXXXXXXXXXXXXXXXXA";
             //xrSwissQRBill1.Amount = 287.30d;
-            //xrSwissQRBill1.Currency = DevExpress.XtraReports.CustomControls.SwissQRBill.Currency.EUR;
+            //xrSwissQRBill1.Currency = CustomControls.SwissQRBill.Currency.EUR;
             //xrSwissQRBill1.Reference = "RFXXXXXXXXXXXXXX";
             //xrSwissQRBill1.AdditionalInformation = "Rechnungsnr. 10978 / Auftragsrnr. 3987";
             //xrSwissQRBill1.CreditorInformation.CountryCode = "CH";
@@ -91,7 +91,7 @@ namespace CustomControlExample {
             this.tableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrSwissQRBill1 = new DevExpress.XtraReports.CustomControls.SwissQRBill.XRSwissQRBill();
+            this.xrSwissQRBill1 = new CustomControls.SwissQRBill.XRSwissQRBill();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
@@ -365,19 +365,28 @@ namespace CustomControlExample {
             // 
             // xrSwissQRBill1
             // 
+            this.xrSwissQRBill1.BackColor = System.Drawing.Color.Transparent;
+            this.xrSwissQRBill1.BorderColor = System.Drawing.Color.Black;
+            this.xrSwissQRBill1.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid;
+            this.xrSwissQRBill1.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrSwissQRBill1.BorderWidth = 1F;
             this.xrSwissQRBill1.CreditorIBAN = "CHXXXXXXXXXXXXXXXXXXX";
             this.xrSwissQRBill1.Dpi = 254F;
-            //this.xrSwissQRBill1.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
-            //new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "StringData", "[BillItemStringInfo]")});
+            this.xrSwissQRBill1.Font = new DevExpress.Drawing.DXFont("Times New Roman", 9.75F);
+            this.xrSwissQRBill1.ForeColor = System.Drawing.Color.Black;
             this.xrSwissQRBill1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrSwissQRBill1.Name = "xrSwissQRBill1";
+            this.xrSwissQRBill1.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.xrSwissQRBill1.Reference = "RFXXXXXXXXXXXXXX";
             this.xrSwissQRBill1.SizeF = new System.Drawing.SizeF(2100F, 1100F);
+            this.xrSwissQRBill1.StringData = "SPC\r\n0200\r\n1\r\nCHXXXXXXXXXXXXXXXXXXX\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nCHF\r\n\r\n\r\n\r\n\r\n\r" +
+    "\n\r\n\r\nSCOR\r\nRFXXXXXXXXXXXXXX\r\n\r\nEPD";
+            this.xrSwissQRBill1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // objectDataSource1
             // 
             this.objectDataSource1.DataMember = "GetOrders";
-            this.objectDataSource1.DataSource = typeof(CustomControlExample.DataSource);
+            this.objectDataSource1.DataSource = typeof(global::CustomControlExample.DataSource);
             this.objectDataSource1.Name = "objectDataSource1";
             // 
             // Report
@@ -392,7 +401,7 @@ namespace CustomControlExample {
             this.DataSource = this.objectDataSource1;
             this.Dpi = 254F;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
-            this.Margins = new DevExpress.Drawing.DXMargins(0, 0, 132, 0);
+            this.Margins = new DevExpress.Drawing.DXMargins(0F, 0F, 132.08F, 0F);
             this.PageHeight = 2970;
             this.PageWidth = 2100;
             this.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4;
@@ -405,7 +414,7 @@ namespace CustomControlExample {
             this.DetailData2,
             this.DetailData3_Odd,
             this.PageInfo});
-            this.Version = "20.1";
+            this.Version = "24.2";
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.objectDataSource1)).EndInit();

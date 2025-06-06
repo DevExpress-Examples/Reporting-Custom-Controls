@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using DevExpress.XtraReports.CustomControls.SwissQRBill;
+using CustomControls.SwissQRBill;
 
 namespace CustomControlExample {
     public class OrderItem {

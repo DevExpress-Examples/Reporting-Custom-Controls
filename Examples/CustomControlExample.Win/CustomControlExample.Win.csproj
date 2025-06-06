@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net8.0-windows;net4.7.2</TargetFrameworks>
@@ -6,12 +6,12 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Win.Reporting" Version="24.2.2-beta" />
+    <PackageReference Include="DevExpress.Win.Reporting" Version="24.2.7" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.Design\DevExpress.XtraReports.CustomControls.Design.csproj" />
-    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.RoundedControls\DevExpress.XtraReports.CustomControls.RoundedControls.csproj" />
-    <ProjectReference Include="..\..\DevExpress.XtraReports.CustomControls.SwissQRBill\DevExpress.XtraReports.CustomControls.SwissQRBill.csproj" />
+    <ProjectReference Include="..\..\CustomControls.Design\CustomControls.Design.csproj" />
+    <ProjectReference Include="..\..\CustomControls.RoundedControls\CustomControls.RoundedControls.csproj" />
+    <ProjectReference Include="..\..\CustomControls.SwissQRBill\CustomControls.SwissQRBill.csproj" />
     <ProjectReference Include="..\CustomControlExample.Report\CustomControlExample.Report.csproj" />
   </ItemGroup>
 </Project>
