@@ -46,13 +46,13 @@ The **DefaultValue** attribute determines whether the property value is included
 ### Brick Serialization
 
 Only XML serialization is necessary. For correct deserialization, map the "brick’s" text type (the overridden `BrickType` property at the Brick level) to the real type. The `BrickFactory.BrickResolve` method is used for mapping. For an
-implementation of the `BrickResolve` method, review the code in the following file: [RoundedCustomControl.cs](../DevExpress.XtraReports.CustomControls.RoundedControls/RoundedCustomControl.cs).
+implementation of the `BrickResolve` method, review the code in the following file: [RoundedCustomControl.cs](../CustomControls.RoundedControls/RoundedCustomControl.cs).
 
 ## Toolbox
 
 To use the component in the Visual Studio Designer, add it to the Visual Studio Toolbox.
 
-To use the component in the End-User Designer, call the `AddRoundedLabelToToolBox` and `AddRoundedPanelToToolBox` methods with the [XRDesignMdiController](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UserDesigner.XRDesignMdiController) instance passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](../DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs).
+To use the component in the End-User Designer, call the `AddRoundedLabelToToolBox` and `AddRoundedPanelToToolBox` methods with the [XRDesignMdiController](https://docs.devexpress.com/XtraReports/UserDesigner.XRDesignMdiController) instance passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](../CustomControls.Design/CustomControlToolBoxRegistrator.cs).
 
 ## Result
 
@@ -69,8 +69,8 @@ When you run this project, the `XRRoundLabel` and `XRRoundPanel` controls are av
 - [RoundPanelBrick](Panel/RoundPanelBrick.cs)
 - [RoundLabelBrickExporter](Panel/RoundPanelBrickExporter.cs)
 - [RoundedBorderPaintHelper](./RoundedBorderPaintHelper.cs)
-- [RoundedCustomControl.cs](../DevExpress.XtraReports.CustomControls.RoundedControls/RoundedCustomControl.cs)
-- [CustomControlToolBoxRegistrator.cs](../DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+- [RoundedCustomControl.cs](../CustomControls.RoundedControls/RoundedCustomControl.cs)
+- [CustomControlToolBoxRegistrator.cs](../CustomControls.Design/CustomControlToolBoxRegistrator.cs)
 
 ## Documentation
 

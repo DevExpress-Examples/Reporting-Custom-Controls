@@ -53,7 +53,7 @@ To add a component to the Visual Studio Toolbox, the component must have the a *
 
 The WinForms End-User Designer requires that the component is registered with the **IToolBoxService**. Handle the **DesignPanelLoaded** event and call the **IToolBoxService.AddToolBoxItem** method to register the component.
 
-To implement design-time functionality for the component, add the **Designer** and **XRDesigner** attributes for Visual Studio and the WinForms End-User Designer, respectively. The control's resize rules and smart tag items must be modified as needed. Smart tag items are specified with the **DesignerActionList** objects registered in the Component Designer. The **GetSelectionRulesCore** method modifies the control’s resize rules. Review the code in the following file for more information: [XRSwissQRBillDesignerActionList.cs](../DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs).
+To implement design-time functionality for the component, add the **Designer** and **XRDesigner** attributes for Visual Studio and the WinForms End-User Designer, respectively. The control's resize rules and smart tag items must be modified as needed. Smart tag items are specified with the **DesignerActionList** objects registered in the Component Designer. The **GetSelectionRulesCore** method modifies the control’s resize rules. Review the code in the following file for more information: [XRSwissQRBillDesignerActionList.cs](../CustomControls.Design/XRSwissQRBillDesignerActionList.cs).
 
 When you set up the property grid, pay close attention to expandable objects. In this example, the **ExpandableObjectConverter** descendants are created to override the **ConvertTo** method. The new **ConvertTo** method implementation changes the string displayed in the property grid editor.  The **GetProperties** method of the **AddressTypeConverter** removes properties which are not necessary for this address type. Review the code in the following file for more information: [TypeConverters.cs](./SwissQRBill/TypeConverters.cs).
 
@@ -134,7 +134,7 @@ implementation of the **BrickResolve** method, review the code in the following 
 
 To use the component in the Visual Studio Designer, add it to the Visual Studio Toolbox.
 
-To use the component in the End-User Designer, call the **AddSwissQRControlToToolBox** method with the **XRDesignMdiController** passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](../DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs).
+To use the component in the End-User Designer, call the **AddSwissQRControlToToolBox** method with the **XRDesignMdiController** passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](../CustomControls.Design/CustomControlToolBoxRegistrator.cs).
 
 ## Conclusion
 
@@ -145,8 +145,8 @@ You have now created your own custom reporting component. If you have technical 
 - [XRSwissQRBill.cs](./SwissQRBill/XRSwissQRBill.cs)
 - [SwissQRBillCustomControl.cs](./SwissQRBillCustomControl.cs)
 - [SwissQRBillBrick.cs](./SwissQRBill/SwissQRBillBrick.cs)
-- [CustomControlToolBoxRegistrator.cs](../DevExpress.XtraReports.CustomControls.Design/CustomControlToolBoxRegistrator.cs)
-- [XRSwissQRBillDesignerActionList.cs](../DevExpress.XtraReports.CustomControls.Design/XRSwissQRBillDesignerActionList.cs)
+- [CustomControlToolBoxRegistrator.cs](../CustomControls.Design/CustomControlToolBoxRegistrator.cs)
+- [XRSwissQRBillDesignerActionList.cs](../CustomControls.Design/XRSwissQRBillDesignerActionList.cs)
 - [TypeConverters.cs](./SwissQRBill/TypeConverters.cs)
 
 
