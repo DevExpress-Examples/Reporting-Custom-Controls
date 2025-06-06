@@ -18,7 +18,7 @@ This example demonstrates two custom controls. For each control there is a custo
 
 ## Implementation
 
-To add a component to the Visual Studio Toolbox, the component must have the a **ToolBoxItem(true)** attribute. 
+To add a component to the Visual Studio Toolbox, the component must have the **ToolBoxItem(true)** attribute. 
 
 Design-time functionality is inherited from the base controls.
 
@@ -52,7 +52,7 @@ implementation of the `BrickResolve` method, review the code in the following fi
 
 To use the component in the Visual Studio Designer, add it to the Visual Studio Toolbox.
 
-To use the component in the End-User Designer, call the `AddRoundedLabelToToolBox` and `AddRoundedPanelToToolBox` methods with the [XRDesignMdiController](https://docs.devexpress.com/XtraReports/UserDesigner.XRDesignMdiController) instance passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](../CustomControls.Design/CustomControlToolBoxRegistrator.cs).
+To use the component in the End-User Designer, call the `AddRoundedLabelToToolBox` and `AddRoundedPanelToToolBox` methods with the [XRDesignMdiController](https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UserDesigner.XRDesignMdiController) instance passed as an argument. Review the code in the following file for more information: [CustomControlToolBoxRegistrator.cs](../CustomControls.Design/CustomControlToolBoxRegistrator.cs).
 
 ## Result
 
