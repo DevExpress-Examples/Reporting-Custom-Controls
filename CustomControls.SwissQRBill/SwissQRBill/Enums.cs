@@ -13,6 +13,7 @@ namespace CustomControls.SwissQRBill {
     }
     public enum AddressType {
         Structured,
+        [Obsolete("Combined address type ('K') was removed in SIX Implementation Guidelines for the QR-bill v2.3 (valid from 21 November 2025). Use AddressType.Structured instead.")]
         Combined,
     }
     public enum Language {

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -18,10 +19,18 @@ namespace CustomControls.SwissQRBill {
 
         public Address DebtorInformation { get; set; } = new Address();
 
-        public string AdditionalInformation { get; set; } = string.Empty;
+        string additionalInformation = string.Empty;
+        public string AdditionalInformation {
+            get => additionalInformation;
+            set { FieldValidation.Validate(value, 140, "AdditionalInformation (Unstructured message)"); additionalInformation = value ?? string.Empty; }
+        }
 
-        public string StructuredInformation { get; set; } = string.Empty;
-        
+        string structuredInformation = string.Empty;
+        public string StructuredInformation {
+            get => structuredInformation;
+            set { FieldValidation.Validate(value, 140, "StructuredInformation (Billing information)"); structuredInformation = value ?? string.Empty; }
+        }
+
         public AlternativeProcedures AlternativeProcedures { get; } = new AlternativeProcedures();
 
         public string QRCodeData {
@@ -44,13 +53,11 @@ namespace CustomControls.SwissQRBill {
 
         public ReferenceType ReferenceType {
             get {
-                if(CreditorAccountNumber == null || Reference == null || Reference.NumberFormat == AccountNumberFormat.None)
+                if(CreditorAccountNumber == null || Reference == null)
                     return ReferenceType.NON;
-                if(CreditorAccountNumber.NumberFormat == AccountNumberFormat.QR_IBAN && Reference.NumberFormat == AccountNumberFormat.QRReference)
-                    return ReferenceType.QRR;
-                if(CreditorAccountNumber.NumberFormat == AccountNumberFormat.IBAN || Reference.NumberFormat == AccountNumberFormat.CreditorReference)
-                    return ReferenceType.SCOR;
-                return ReferenceType.NON;
+                if(CreditorAccountNumber.NumberFormat == AccountNumberFormat.QR_IBAN)
+                    return Reference.NumberFormat == AccountNumberFormat.QRReference ? ReferenceType.QRR : ReferenceType.NON;
+                return Reference.NumberFormat == AccountNumberFormat.CreditorReference ? ReferenceType.SCOR : ReferenceType.NON;
             }
         }
 
@@ -68,7 +75,7 @@ namespace CustomControls.SwissQRBill {
             CreditorInformation.ConvertFromQRCodeDataString(rawData.Skip(4).Take(7).ToArray());
             if(rawData[18].Length > 0) {
                 double amount;
-                if(double.TryParse(rawData[18], out amount)) {
+                if(double.TryParse(rawData[18], NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out amount)) {
                     Amount = amount;
                 } else {
                     ValidationError.ThrowValidationException(ValidationCode.InvalidAmount);
@@ -97,11 +104,12 @@ namespace CustomControls.SwissQRBill {
             stringBuilder.AppendLine(CreditorAccountNumber.ConvertToQRCodeDataString());
             stringBuilder.AppendLine(CreditorInformation.ConvertToQRCodeDataString());
             stringBuilder.AppendLine(new Address().ConvertToQRCodeDataString());
-            stringBuilder.AppendLine(Amount == null ? string.Empty : Amount.Value.ToString("#0.00"));
+            stringBuilder.AppendLine(Amount == null ? string.Empty : Amount.Value.ToString("#0.00", CultureInfo.InvariantCulture));
             stringBuilder.AppendLine(Currency.ToString());
             stringBuilder.AppendLine(DebtorInformation.ConvertToQRCodeDataString());
             stringBuilder.AppendLine(ReferenceType.ToString());
             stringBuilder.AppendLine(Reference == null ? string.Empty : Reference.ConvertToQRCodeDataString());
+            FieldValidation.ValidateCombinedLength(AdditionalInformation, StructuredInformation, 140, "AdditionalInformation + StructuredInformation (combined)");
             stringBuilder.AppendLine(AdditionalInformation);
             stringBuilder.Append("EPD");
             AddIfNotEmpty(stringBuilder, StructuredInformation);
@@ -116,12 +124,16 @@ namespace CustomControls.SwissQRBill {
             }
         }
 
+        const double MinAmount = 0.01d;
+        const double MaxAmount = 999999999.99d;
         double? CoerceAmount(double? amount) {
-            if(amount == null) {
+            if(amount == null)
                 return amount;
-            } else {
-                return amount.Value <= 0.01d ? 0.01d : amount;
-            }
+            if(amount.Value <= MinAmount)
+                return MinAmount;
+            if(amount.Value > MaxAmount)
+                return MaxAmount;
+            return amount;
         }
     }
 }

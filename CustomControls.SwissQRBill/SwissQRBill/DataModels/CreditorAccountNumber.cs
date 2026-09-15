@@ -1,6 +1,6 @@
 namespace CustomControls.SwissQRBill {
     public class CreditorAccountNumber : AccountNumber {
-        const string DefaultNumber = "CHXXXXXXXXXXXXXXXXXXX";
+        const string DefaultNumber = "CH5800791123000889012";
 
         public CreditorAccountNumber(string ibanStr) : base(ibanStr) { }
         public CreditorAccountNumber() : this(DefaultNumber) { }
@@ -8,10 +8,10 @@ namespace CustomControls.SwissQRBill {
             return str.Length == 21 && (str.StartsWith("CH") || str.StartsWith("LI"));
         }
         static bool IsQR_IBAN(string str) {
-            return IsIban(str) && str[4] == '3';
+            return IsIban(str) && int.TryParse(str.Substring(4, 5), out int iid) && iid >= 30000 && iid <= 31999;
         }
         protected override bool IsValid(string str) {
-            return IsIban(str) || IsQR_IBAN(str);
+            return (IsIban(str) || IsQR_IBAN(str)) && ChecksumValidator.IsValidIso7064Mod97(str);
         }
         protected override void IdentifyFormat() {
             if(IsIban(Number))

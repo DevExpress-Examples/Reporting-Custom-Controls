@@ -67,10 +67,16 @@ namespace CustomControls.SwissQRBill {
 
         public override string ConvertToQRCodeDataString() {
             List<string> result = new List<string>();
-            if(!IsFirstPairEmpty)
-                result.Add($"{Name1}{SplitterString}{Instruction1}");
-            if(!IsSecondPairEmpty)
-                result.Add($"{Name2}{SplitterString}{Instruction2}");
+            if(!IsFirstPairEmpty) {
+                string procedure1 = $"{Name1}{SplitterString}{Instruction1}";
+                FieldValidation.Validate(procedure1, 100, "AlternativeProcedures.Name1/Instruction1");
+                result.Add(procedure1);
+            }
+            if(!IsSecondPairEmpty) {
+                string procedure2 = $"{Name2}{SplitterString}{Instruction2}";
+                FieldValidation.Validate(procedure2, 100, "AlternativeProcedures.Name2/Instruction2");
+                result.Add(procedure2);
+            }
             return string.Join(Environment.NewLine, result);
         }
 

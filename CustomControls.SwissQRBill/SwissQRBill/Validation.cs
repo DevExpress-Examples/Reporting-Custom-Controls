@@ -63,5 +63,9 @@ namespace CustomControls.SwissQRBill {
         public static void ThrowValidationException(ValidationCode validationCode) {
             throw new Exception(validationStringConstants[validationCode] + " Section: " + validationCodeSections[validationCode]);
         }
+
+        public static Exception FieldException(string fieldName, string reason) {
+            return new Exception(reason + " Field: " + fieldName);
+        }
     }
 }
