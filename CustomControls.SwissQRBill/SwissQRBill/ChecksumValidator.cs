@@ -17,7 +17,7 @@ namespace CustomControls.SwissQRBill {
         };
 
         public static bool IsValidMod10Recursive(string reference) {
-            if(reference == null || reference.Length != 27 || !reference.All(char.IsDigit))
+            if(reference == null || reference.Length != 27 || !reference.All(c => c >= '0' && c <= '9'))
                 return false;
 
             int carry = 0;
@@ -36,7 +36,7 @@ namespace CustomControls.SwissQRBill {
             int remainder = 0;
             foreach(char c in rearranged) {
                 int numericValue;
-                if(char.IsDigit(c)) {
+                if(c >= '0' && c <= '9') {
                     numericValue = c - '0';
                     remainder = (remainder * 10 + numericValue) % 97;
                 } else if(char.IsLetter(c)) {

@@ -38,6 +38,7 @@ namespace CustomControls.SwissQRBill {
         InvalidAmount,
         InvalidFieldTrailer,
         InvalidAccountNumber,
+        InvalidReferenceType,
     }
     public static class ValidationError {
         static Dictionary<ValidationCode, string> validationCodeSections = new Dictionary<ValidationCode, string>() {
@@ -48,6 +49,7 @@ namespace CustomControls.SwissQRBill {
             { ValidationCode.InvalidAmount, QRCodeSections.Amount },
             { ValidationCode.InvalidFieldTrailer, QRCodeSections.Trailer },
             { ValidationCode.InvalidAccountNumber, QRCodeSections.IBAN },
+            { ValidationCode.InvalidReferenceType, QRCodeSections.ReferenceType },
         };
 
         static Dictionary<ValidationCode, string> validationStringConstants = new Dictionary<ValidationCode, string>() {
@@ -58,6 +60,7 @@ namespace CustomControls.SwissQRBill {
             { ValidationCode.InvalidAmount, "Valid number required EN culture and (#.##) format" },
             { ValidationCode.InvalidFieldTrailer, "Valid data structure contains EPD field trailer" },
             { ValidationCode.InvalidAccountNumber, "Account Number must have valid format" },
+            { ValidationCode.InvalidReferenceType, "A QR-IBAN requires a QRR reference and a standard IBAN cannot have a QRR reference" },
         };
 
         public static void ThrowValidationException(ValidationCode validationCode) {

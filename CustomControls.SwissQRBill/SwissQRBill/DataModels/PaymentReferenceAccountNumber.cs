@@ -12,7 +12,7 @@ namespace CustomControls.SwissQRBill {
                 && Regex.IsMatch(str, "^RF[0-9]{2}[A-Za-z0-9]+$");
         }
         static bool IsQR_Reference(string str) {
-            return str.Length == 27 && str.All(char.IsDigit);
+            return str.Length == 27 && str.All(c => c >= '0' && c <= '9');
         }
         protected override bool IsValid(string str) {
             if(string.IsNullOrEmpty(str))

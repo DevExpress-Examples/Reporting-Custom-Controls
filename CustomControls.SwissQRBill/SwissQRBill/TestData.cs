@@ -9,7 +9,7 @@ namespace CustomControls.SwissQRBill {
         public const string BillWithFullSectionFieldsEmpty = "SPC\r\n0200\r\n1\r\nCH5800791123000889012\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRF18539007547034\r\n\r\nEPD\r\n";
         public const string BillWithTwoProcedures = "SPC\r\n0200\r\n1\r\nCH5800791123000889012\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRF18539007547034\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n//bill information\r\nName AV1: UV;UltraPay005;12345\r\nName AV2: XY;XYService;54321";
         public const string BillWithOneProcedure = "SPC\r\n0200\r\n1\r\nCH5800791123000889012\r\nS\r\nSchreinerei Habegger & Sohne\r\nUetlibergstrasse\r\n138\r\n8045\r\nZuric\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n287.30\r\nEUR\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nSCOR\r\nRF18539007547034\r\nRechnungsnr. 10978 / Auftragsrnr. 3987\r\nEPD\r\n//bill information\r\nName AV1: XY;XYService;54321";
-        public const string BillFromRealData = "SPC\r\n0200\r\n1\r\nCH4944995599000899901\r\nS\r\nHenri Schmid Service Switzerland AG\r\nMuseumstrasse\r\n258\r\n2501\r\nBiel\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n8690.00\r\nCHF\r\nS\r\nPia-Maria Rutschmann-Schnyder\r\nGrosse Marktgasse\r\n28\r\n9400\r\nRorschach\r\nCH\r\nSCOR\r\n210000000003139471430009017\r\nAuftrag vom 25.10.2019##S1/01/20170309/11/10201409/20/14000/22/36958/30/CH10646546/40/1020/41/3010\r\nEPD\r\n";
+        public const string BillFromRealData = "SPC\r\n0200\r\n1\r\nCH6531999599000899901\r\nS\r\nHenri Schmid Service Switzerland AG\r\nMuseumstrasse\r\n258\r\n2501\r\nBiel\r\nCH\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n8690.00\r\nCHF\r\nS\r\nPia-Maria Rutschmann-Schnyder\r\nGrosse Marktgasse\r\n28\r\n9400\r\nRorschach\r\nCH\r\nQRR\r\n210000000003139471430009017\r\nAuftrag vom 25.10.2019##S1/01/20170309/11/10201409/20/14000/22/36958/30/CH10646546/40/1020/41/3010\r\nEPD\r\n";
 
         public static List<QRBillDataItem> CreateData() {
             return new List<QRBillDataItem>() {
@@ -118,7 +118,7 @@ namespace CustomControls.SwissQRBill {
 
         public static QRBillDataItem Create_Test_Item_FromRealData() {
             var result = new QRBillDataItem() {
-                CreditorAccountNumber = new CreditorAccountNumber("CH4944995599000899901"),
+                CreditorAccountNumber = new CreditorAccountNumber("CH6531999599000899901"),
                 Amount = 8690,
                 Currency = Currency.CHF,
                 Reference = new PaymentReferenceAccountNumber("210000000003139471430009017"),

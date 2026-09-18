@@ -41,7 +41,7 @@ namespace CustomControls.SwissQRBill {
         public string CountryCode {
             get => countryCode;
             set {
-                if(!string.IsNullOrEmpty(value) && !Regex.IsMatch(value, "^[A-Za-z]{2}$"))
+                if(!string.IsNullOrEmpty(value) && !Regex.IsMatch(value, "^[A-Z]{2}$"))
                     throw ValidationError.FieldException("Country", "Must be a two-letter country code (ISO 3166-1).");
                 countryCode = value ?? string.Empty;
             }

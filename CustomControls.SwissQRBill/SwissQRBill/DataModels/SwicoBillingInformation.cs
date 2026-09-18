@@ -46,7 +46,7 @@ namespace CustomControls.SwissQRBill {
         public bool IsEmpty {
             get {
                 return string.IsNullOrEmpty(InvoiceNumber) && InvoiceDate == null && string.IsNullOrEmpty(CustomerReference)
-                    && string.IsNullOrEmpty(VatNumber) && VatDate == null && VatRate == null
+                    && string.IsNullOrEmpty(VatNumber) && VatDate == null && VatDateRangeEnd == null && VatRate == null
                     && VatDetails.Count == 0 && ImportVatDetails.Count == 0 && PaymentConditions.Count == 0;
             }
         }
@@ -60,6 +60,9 @@ namespace CustomControls.SwissQRBill {
             if(!string.IsNullOrEmpty(VatNumber) && !Regex.IsMatch(VatNumber, "^[0-9]{9}$"))
                 throw ValidationError.FieldException("SwicoBillingInformation.VatNumber",
                     "Must be the 9-digit UID number, without the CHE prefix, separators or MWST/TVA/IVA/VAT suffix.");
+            if(VatDate == null && VatDateRangeEnd != null)
+                throw ValidationError.FieldException("SwicoBillingInformation.VatDateRangeEnd",
+                    "VatDateRangeEnd requires VatDate to be set as the start of the range.");
 
             var tags = new List<Tuple<int, string>>();
             AddTag(tags, 10, Escape(InvoiceNumber));
@@ -146,6 +149,8 @@ namespace CustomControls.SwissQRBill {
                         info.CustomerReference = Unescape(raw);
                         break;
                     case 30:
+                        if(!Regex.IsMatch(raw, "^[0-9]{9}$"))
+                            return false;
                         info.VatNumber = raw;
                         break;
                     case 31:
@@ -166,7 +171,7 @@ namespace CustomControls.SwissQRBill {
                         if(raw.Contains(":")) {
                             if(!TryParseList(raw, info.VatDetails))
                                 return false;
-                        } else if(decimal.TryParse(raw, NumberStyles.Number, CultureInfo.InvariantCulture, out rate)) {
+                        } else if(TryParseDecimal(raw, out rate)) {
                             info.VatRate = rate;
                         } else {
                             return false;
@@ -198,13 +203,20 @@ namespace CustomControls.SwissQRBill {
         static bool TryParseDate(string raw, out DateTime date) {
             return DateTime.TryParseExact(raw, "yyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
         }
+        static bool TryParseDecimal(string raw, out decimal value) {
+            if(!Regex.IsMatch(raw, @"^-?[0-9]+(\.[0-9]+)?$")) {
+                value = default;
+                return false;
+            }
+            return decimal.TryParse(raw, NumberStyles.AllowLeadingSign | NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out value);
+        }
         static bool TryParseList(string raw, List<SwicoVatRateAmount> target) {
             foreach(string part in raw.Split(';')) {
                 string[] pieces = part.Split(':');
                 decimal rate, amount;
                 if(pieces.Length != 2
-                    || !decimal.TryParse(pieces[0], NumberStyles.Number, CultureInfo.InvariantCulture, out rate)
-                    || !decimal.TryParse(pieces[1], NumberStyles.Number, CultureInfo.InvariantCulture, out amount))
+                    || !TryParseDecimal(pieces[0], out rate)
+                    || !TryParseDecimal(pieces[1], out amount))
                     return false;
                 target.Add(new SwicoVatRateAmount(rate, amount));
             }
@@ -216,7 +228,7 @@ namespace CustomControls.SwissQRBill {
                 decimal rate;
                 int days;
                 if(pieces.Length != 2
-                    || !decimal.TryParse(pieces[0], NumberStyles.Number, CultureInfo.InvariantCulture, out rate)
+                    || !TryParseDecimal(pieces[0], out rate)
                     || !int.TryParse(pieces[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out days))
                     return false;
                 target.Add(new SwicoPaymentCondition(rate, days));
