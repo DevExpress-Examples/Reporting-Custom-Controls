@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net4.7.2</TargetFrameworks>
+    <TargetFrameworks>net10.0;net4.7.2</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.7" />
+    <PackageReference Include="DevExpress.Reporting.Core" Version="26.1.5" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CustomControls.Design\CustomControls.Design.csproj" />
